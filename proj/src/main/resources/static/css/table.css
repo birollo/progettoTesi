@@ -1,0 +1,14 @@
+body {
+    font-family: Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.gantt-shedule-timeline-calendar__chart-gantt-items-row-item-content {
+    padding: 0px 5px !important;
+    border-radius: 14px;
+}
+h1 {
+    font-size: 20px;
+    line-height: 20px;
+}
+.resizing {
+    background: rgb(33, 188, 235) !important;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="master::head('listTurni')"></head>
+<!--<body style="background-color: #C5E1A5">-->
+<link rel="stylesheet" th:href="@{/css/userProfile.css}" type="text/css"/>
+<body>
+<header th:insert="~{master::header}"></header>
+<h1>Lista Turni</h1>
+<div class="card  col-md-10 align-self-center">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Numero</th>
+            <th scope="col">Valore</th>
+            <th scope="col">Durata</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="turno: ${turni}">
+            <td>
+                <a th:href="@{'/turno/' + ${turno.id}}" th:text="${turno.name}"></a>
+            </td>
+            <td th:text="${turno.value}">Valore</td>
+            <td th:text="${turno.duration}">Durata</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

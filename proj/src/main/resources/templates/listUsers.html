@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="master::head('listUsers')"></head>
+<!--<body style="background-color: #e43b2d">-->
+<link rel="stylesheet" th:href="@{/css/userProfile.css}" type="text/css"/>
+<body>
+<header th:insert="~{master::header}"></header>
+<h1>Lista Utenti</h1>
+<div class="card  col-md-10 align-self-center">
+    <h5 class="card-header">Autisti di linea</h5>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Cognome</th>
+            </tr>
+            </thead>
+            <tbody>
+            <div th:each="autista: ${autisti}">
+                <tr>
+                    <td><a th:text="${autista.name}" th:href="@{'/user/' + ${autista.id}}">Nome</a></td>
+                    <td th:text="${autista.surname}">Cognome</td>
+                </tr>
+            </div>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="card  col-md-10 align-self-center">
+    <h5 class="card-header">Autisti tratte speciali</h5>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Cognome</th>
+            </tr>
+            </thead>
+            <tbody>
+            <div th:each="speciale: ${speciali}">
+                <tr>
+                    <td><a th:text="${speciale.name}" th:href="@{'/user/' + ${speciale.id}}">Nome</a></td>
+                    <td th:text="${speciale.surname}">Cognome</td>
+                </tr>
+            </div>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="card  col-md-10 align-self-center">
+    <h5 class="card-header">Riserve</h5>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Cognome</th>
+            </tr>
+            </thead>
+            <tbody>
+            <div th:each="riserva: ${riserve}">
+                <tr>
+                    <td ><a th:text="${riserva.name}" th:href="@{'/user/' + ${riserva.id}}" >Nome</a></td>
+                    <td th:text="${riserva.surname}">Cognome</td>
+                </tr>
+            </div>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
