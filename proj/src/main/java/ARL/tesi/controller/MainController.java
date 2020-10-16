@@ -157,6 +157,7 @@ public class MainController {
 
     @GetMapping(value = "/turno/{id}/delete")
     public String deleteTurno(@PathVariable int id){
+        //todo: non cancellare ma solo togliere visibilita
         personService.deleteTurno(shifftService.getOne(id));
         return "redirect:/";
     }

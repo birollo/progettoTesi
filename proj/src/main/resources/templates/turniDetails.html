@@ -8,7 +8,7 @@
 <header th:insert="~{master::header}"></header>
 <main>
     <div>
-        <div class="panel-heading">
+        <div sec:authorize="hasRole('ROLE_ADMIN')" class="panel-heading">
             <div class="btn-group" style="float:right;">
                 <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="glyphicon glyphicon-cog"></span>

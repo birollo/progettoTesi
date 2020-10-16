@@ -9,7 +9,7 @@
 
 <main>
     <div>
-        <div class="panel-heading">
+        <div sec:authorize="hasRole('ROLE_ADMIN')" class="panel-heading">
             <div class="btn-group" style="float:right;">
                 <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="glyphicon glyphicon-cog"></span>
@@ -83,7 +83,7 @@
                     <th scope="col">Data</th>
                     <th scope="col">Valore Turno</th>
                     <th scope="col">Totale minuti</th>
-                    <th scope="col">Edita</th>
+                    <th  sec:authorize="hasRole('ROLE_ADMIN')"scope="col">Edita</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -92,21 +92,21 @@
                     <td th:text="${turno.date}"></td>
                     <td th:text="${turno.turno.value}"></td>
                     <td th:text="${turno.turno.duration}"></td>
-                    <td style="border: 0">
+                    <td sec:authorize="hasRole('ROLE_ADMIN')">
                         <a th:href="@{'/turno/' + ${turno.turno.id} + '/delete'}">
-                            <i class="fa fa-trash" style="color: white"></i>
+                            <i class="fa fa-trash" style="color: black"></i>
                         </a>
                         <a th:href="@{'/turno/' + ${turno.turno.id} + '/edit'}">
-                            <i class="fa fa-edit" style="color: white"></i>
+                            <i class="fa fa-edit" style="color: black"></i>
                         </a>
                     </td>
                 </tr>
                 <tr>
                     <th></th>
                     <th></th>
-                    <th></th>
                     <th>Tot. min. effettuati</th>
                     <th th:text="${totMin}">0</th>
+                    <th sec:authorize="hasRole('ROLE_ADMIN')"></th>
                 </tr>
                 </tbody>
 
