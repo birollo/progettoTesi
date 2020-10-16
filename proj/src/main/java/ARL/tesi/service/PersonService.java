@@ -1,27 +1,24 @@
 package ARL.tesi.service;
 
+import ARL.tesi.modelobject.Shiffts;
 import ARL.tesi.util.ShifftsReader;
-import org.aspectj.util.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import ARL.tesi.modelobject.Assegnazione;
 import ARL.tesi.modelobject.Role;
-import ARL.tesi.modelobject.Turno;
 import ARL.tesi.modelobject.User;
 import ARL.tesi.repository.AssegnazioneRepository;
 import ARL.tesi.repository.RoleRepository;
-import ARL.tesi.repository.TurnoRepository;
+import ARL.tesi.repository.ShifftsRepository;
 import ARL.tesi.repository.UserRepository;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.PostConstruct;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.text.ParseException;
@@ -35,10 +32,13 @@ public class PersonService {
     private UserRepository userRepo;
 
     @Autowired
+    private ShifftService shifftService;
+
+    @Autowired
     private RoleRepository roleRepo;
 
     @Autowired
-    private TurnoRepository turnoRepo;
+    private ShifftsRepository turnoRepo;
 
     @Autowired
     private AssegnazioneRepository assegnazioneRepo;
@@ -132,12 +132,13 @@ public class PersonService {
     }
 
     private void createShiffts(){
+        int size = turnoRepo.findAll().size();
         if (turnoRepo.findAll().size() == 0){
             ShifftsReader sr = new ShifftsReader();
             File file1 = Paths.get(".", "/src/main/resources/files", "provaScript2.xlsx").normalize().toFile();
             try {
                 MultipartFile multipartFile = new MockMultipartFile("test.xlsx", new FileInputStream(file1));
-                List<Turno> shiffts = sr.readExcell(multipartFile);
+                List<Shiffts> shiffts = sr.readExcell(multipartFile);
                 for (int k = 0; k <shiffts.size(); k++){
                     turnoRepo.save(shiffts.get(k));
                 }
@@ -150,17 +151,16 @@ public class PersonService {
     private void createAssignments(){
         if (assegnazioneRepo.findAll().size() == 0){
             User user=findUserByUsername("Aguiari R.");
-            Turno turno = turnoRepo.getFirstByName(4);
+            Shiffts turno = turnoRepo.getFirstByName(4);
             Calendar cal1=Calendar.getInstance();
             cal1.set(Calendar.MILLISECOND, 0);
             cal1.set(Calendar.SECOND, 0);
             cal1.set(Calendar.MINUTE, 0);
             cal1.set(Calendar.HOUR_OF_DAY, 0);
-            cal1.set(Calendar.DAY_OF_MONTH, 26);
-            cal1.set(Calendar.MONTH, Calendar.DECEMBER);
-            cal1.set(Calendar.YEAR, 2019);
-            Assegnazione assegnazione1=new Assegnazione(user, turno, cal1.getTime());
-            addAssegnazione(assegnazione1);
+            cal1.set(Calendar.DAY_OF_MONTH, 13);
+            cal1.set(Calendar.MONTH, Calendar.OCTOBER);
+            cal1.set(Calendar.YEAR, 2020);
+            assegnazioneRepo.save(new Assegnazione(user,turno,cal1.getTime()));
         }
     }
 
@@ -226,18 +226,18 @@ public class PersonService {
     }
 
 
-    //////////////////////// Turno /////////////////////////////////
-    public Turno addTurno(Turno turno){
+    //////////////////////// Shiffts /////////////////////////////////
+    public Shiffts addTurno(Shiffts turno){
         return turnoRepo.save(turno);
     }
 
-    public Collection<Turno> getTurni(){
+    public Collection<Shiffts> getTurni(){
         return turnoRepo.findAll();
     }
 
-    public Optional<Turno> getTurno(int id){ return turnoRepo.findById(id);}
+    public Optional<Shiffts> getTurno(int id){ return turnoRepo.findById(id);}
 
-    public void deleteTurno(Turno turno){
+    public void deleteTurno(Shiffts turno){
         turnoRepo.delete(turno);
     }
 

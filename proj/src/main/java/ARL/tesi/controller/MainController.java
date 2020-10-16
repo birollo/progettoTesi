@@ -1,27 +1,27 @@
 package ARL.tesi.controller;
 
 
-import ARL.tesi.modelobject.Turno;
+import ARL.tesi.modelobject.Assegnazione;
+import ARL.tesi.modelobject.DBFile;
+import ARL.tesi.modelobject.Shiffts;
 import ARL.tesi.modelobject.User;
-import ARL.tesi.repository.TurnoRepository;
+import ARL.tesi.repository.ShifftsRepository;
+import ARL.tesi.service.AssegnazioneService;
+import ARL.tesi.service.DBFileStorageService;
 import ARL.tesi.service.PersonService;
-import org.aspectj.util.FileUtil;
+import ARL.tesi.service.ShifftService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.net.http.HttpRequest;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class MainController {
@@ -30,7 +30,13 @@ public class MainController {
     PersonService personService;
 
     @Autowired
-    TurnoRepository turnoRepository;
+    ShifftService shifftService;
+
+    @Autowired
+    AssegnazioneService assegnazioneService;
+
+    @Autowired
+    DBFileStorageService dbFileStorageService;
 
     @GetMapping("/")
     public String index(Model model) {
@@ -52,10 +58,20 @@ public class MainController {
 
     //per funzione ajax caricamento
     @GetMapping(value = "/listaPersone")
-    public @ResponseBody
-    List<User> listPerson(){
-        return (List<User>) personService.getUsersByRole("Autista di linea");
+    public @ResponseBody List<User> listPerson(){
+        List<User> autisti = personService.getUsersByRole("Autista di linea");
+        return autisti;
     }
+
+    //per funzione ajax caricamento
+    @GetMapping(value = "/assegnazione/{id}/{date}/getStartTime")
+    public @ResponseBody Shiffts getStartTime(@RequestParam("turno") String name){
+        Shiffts s = shifftService.getLastByName(Integer.valueOf(name));
+        LocalTime startTime = s.getStartTime();
+        s.setStartTime(startTime);
+        return shifftService.getLastByName(Integer.valueOf(name));
+    }
+
 
     @GetMapping("/listUsers")
     public String utenti(Model model){
@@ -71,7 +87,7 @@ public class MainController {
     @GetMapping("/listTurni")
     public String turni(Model model){
         model.addAttribute("user", personService.getAuthenticatedUser());
-        model.addAttribute("turni", personService.getTurni());
+        model.addAttribute("turni", shifftService.getLastVersionOfAll());
         return "listTurni";
     }
 
@@ -97,27 +113,27 @@ public class MainController {
     @GetMapping("/turno/new")
     public String newPost(Model model){
         model.addAttribute("user", personService.getAuthenticatedUser());
-        model.addAttribute("turno", new Turno());
+        model.addAttribute("turno", new Shiffts());
         model.addAttribute("users", personService.getUsers());
         return "createTurno";
     }
 
     @PostMapping("/turno/new")
-    public String post(Turno turno){
+    public String post(Shiffts turno){
         personService.addTurno(turno);
         return "redirect:/";
     }
 
     @GetMapping("/turno/{id}")
     public String detailTurno(@PathVariable int id, Model model){
-        model.addAttribute("turno", turnoRepository.getOne(id));
+        model.addAttribute("turno", shifftService.getOne(id));
         model.addAttribute("user", personService.getAuthenticatedUser());
         return "turniDetails";
     }
 
     @GetMapping("/turno/{id}/edit")
     public String editTurno(@PathVariable int id, Model model){
-        Turno turno =  turnoRepository.getOne(id);
+        Shiffts turno =  shifftService.getOne(id);
         model.addAttribute("turno", turno);
         model.addAttribute("users", personService.getUsers());
         model.addAttribute("roles", personService.getRoles());
@@ -125,8 +141,8 @@ public class MainController {
     }
 
     @PostMapping("/turno/{id}/edit")
-    public String putTurno(@PathVariable int id, Turno newTurno){
-        Turno turno =  turnoRepository.getOne(id);
+    public String putTurno(@PathVariable int id, Shiffts newTurno){
+        Shiffts turno =  shifftService.getOne(id);
         newTurno.setId(id);
         if(newTurno.getDuration()!=0){
             turno.setDuration(newTurno.getDuration());
@@ -141,7 +157,7 @@ public class MainController {
 
     @GetMapping(value = "/turno/{id}/delete")
     public String deleteTurno(@PathVariable int id){
-        personService.deleteTurno(turnoRepository.getOne(id));
+        personService.deleteTurno(shifftService.getOne(id));
         return "redirect:/";
     }
 
@@ -191,7 +207,10 @@ public class MainController {
 
 
     @GetMapping(value = "turno/excelUpload")
-    public String excelUpload(){
+    public String excelUpload(Model model){
+        //prendo tutti gli ecxcell
+        List<DBFile> dbFileList = dbFileStorageService.getAllByType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        model.addAttribute("excells", dbFileList);
         return "excelUpload";
     }
 
@@ -199,19 +218,66 @@ public class MainController {
     public String addAssignment(Model model,@PathVariable String id, @PathVariable Date date){
         String name = id.split(" ")[0];
         String surname = id.split(" ")[1];
+        User u = personService.getuserByNameAndSurname(name, surname);
+        model.addAttribute("user", u);
+
         String pattern = "dd-MM-yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        //todo:forse e qua che si toglie un giorno
+        cal.add(Calendar.DATE, -1);
+
+        Date dateBefore = cal.getTime();
+        String stringDateBefore = simpleDateFormat.format(dateBefore);
+        try {
+            dateBefore = simpleDateFormat.parse(stringDateBefore);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
         String fdate = simpleDateFormat.format(date);
-        model.addAttribute("user", personService.getuserByNameAndSurname(name, surname));
+
+        int idUser = u.getId();
+        Assegnazione lastAssignment = assegnazioneService.getByUserAndDate(u, dateBefore);
+        Shiffts lastShifft;
+        if(lastAssignment == null){
+            lastShifft = new Shiffts(0, true, "", 0, 0, 0, 0,
+                                        LocalTime.of(0,0), LocalTime.of(0,0));
+        }else {
+            lastShifft = lastAssignment.getTurno();
+        }
+        //todo: le ore nel database sono ridotte di 1, ma le carica giuste
+//        lastShifft.setEndTime(lastShifft.getEndTime().plusHours(-1));
+
         model.addAttribute("date", fdate);
-        model.addAttribute("turni", personService.getTurni());
+        model.addAttribute("turni", shifftService.getLastVersionOfAll());
+        model.addAttribute("lastShifft" , lastShifft);
         return "/addAssignment";
     }
 
     @PostMapping(value = "/assegnazione/{id}/{date}")
-    public String checkAssignment(@RequestParam("thisTurno") String idTurno, @PathVariable String id, @PathVariable Date date){
-        //todo: crare assegnazione
+    public String checkAssignment(@RequestParam("thisTurno") int idTurno, @PathVariable String id, @PathVariable Date date){
+        String name = id.split(" ")[0];
+        String surname = id.split(" ")[1];
+        User u = personService.getuserByNameAndSurname(name,surname);
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        //todo:qui clicchi un giorno e nel db c e un giorno in piu
+//        cal.add(Calendar.DATE, +1);
+        Date dateBefore1Days = cal.getTime();
+
+        Shiffts t = shifftService.getLastByName(idTurno);
+
+        Assegnazione a = new Assegnazione(u,t,dateBefore1Days);
+        assegnazioneService.save(a);
+
+
         return "redirect:/";
     }
+
 
 }

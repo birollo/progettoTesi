@@ -43,11 +43,11 @@ input.invalid {
     background-color: #4CAF50;
 }
 
-html {height:100%}
-body {
-    min-height:100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: stretch;
-}
+/*html {height:100%}*/
+/*body {*/
+    /*min-height:100%;*/
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: space-between;*/
+    /*align-items: stretch;*/
+/*}*/

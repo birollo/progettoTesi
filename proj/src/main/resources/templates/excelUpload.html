@@ -24,11 +24,29 @@
 
     </div>
 
-    <div>
-        <p><a href="/downloadFile/1">Download excel corrente</a></p>
-    </div>
+    <!--<div>-->
+        <!--<p><a href="/downloadFile/1">Download excel corrente</a></p>-->
+    <!--</div>-->
     <div class="text-center">
         <a th:href="@{/}">Home page</a>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Data</th>
+                <th scope="col">Scarica</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="file:${excells}">
+                <td th:text="${file.fileName}">Nome</td>
+                <td th:text="${file.date}">Cognome</td>
+                <td><a th:href="@{'/downloadFile/'+${file.id}}">Scarica</a></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 <script src="/js/excelUpload.js" ></script>

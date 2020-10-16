@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.springframework.org/schema/data/jaxb" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:insert="~{master::head('turnoDetail')}"></head>
-<!--<link rel="stylesheet" th:href="@{/css/userProfile.css}" type="text/css"/>-->
+<head>
+    <!--<link rel="stylesheet" th:href="@{/css/userProfile.css}" type="text/css"/>-->
+</head>
 <body>
 <header th:insert="~{master::header}"></header>
-
-
-    <div class="center">
+<main>
+    <div>
         <div class="panel-heading">
             <div class="btn-group" style="float:right;">
                 <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span style="color: black" class="glyphicon glyphicon-cog"></span>
+                    <span class="glyphicon glyphicon-cog"></span>
                     <span class="sr-only">Toggle Dropdown</span>
                 </button>
                 <ul style="background-color: #EDEDED" class="dropdown-menu">
@@ -21,14 +22,20 @@
             </div>
             <div class="clearfix"></div>
         </div>
-        <h2 class="item item-divider" >Turno detail</h2><br>
-        <p>Nome: <a th:text="${turno.name}">...</a></p>
-        <p>Scolastico?: <a th:text="${turno.school}">...</a></p>
-        <p>Tipo: <a th:text="${turno.tipo}">...</a></p>
-        <p>Durata: <a th:text="${turno.duration}">...</a></p>
-        <p>Valore: <a th:text="${turno.value}">...</a></p>
-        <p>Valore servizio: <a th:text="${turno.valueServizio}">...</a></p>
+
+
+        <h1 class="item item-divider">Turno detail</h1><br>
+        <div id="details" style="display: block">
+            <p>Nome: <a th:text="${turno.name}">...</a></p>
+            <p>Scolastico?: <a th:text="${turno.school}">...</a></p>
+            <p>Tipo: <a th:text="${turno.tipo}">...</a></p>
+            <p>Durata: <a th:text="${turno.duration}">...</a></p>
+            <p>Valore: <a th:text="${turno.value}">...</a></p>
+            <p>Valore servizio: <a th:text="${turno.valueServizio}">...</a></p>
+        </div>
     </div>
 
+</main>
+<script type="text/javascript" th:src="@{/js/userProfile.js}"></script>
 </body>
 </html>

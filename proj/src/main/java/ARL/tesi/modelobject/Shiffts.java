@@ -4,10 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.time.LocalTime;
 import java.util.List;
 
 @Entity
-public class Turno {
+public class Shiffts implements Comparable<Shiffts> {
     @Id
     @GeneratedValue
     private int id;
@@ -17,22 +18,29 @@ public class Turno {
     private int value;
     private int valueServizio;
     private String tipo;
+    private int version;
+    private LocalTime startTime;
+    private LocalTime endTime;
 
     @OneToMany
     private List<Assegnazione> assegnazione;
 
 
 
-    public Turno() {
+    public Shiffts() {
     }
 
-    public Turno(int name,boolean school ,String tipo, int duration, int value, int valueServizio){
+    public Shiffts(int name, boolean school , String tipo, int duration,
+                   int value, int valueServizio, int version, LocalTime startTime, LocalTime endTime){
         this.name = name;
         this.school = school;
         this.tipo = tipo;
         this.duration = duration;
         this.value = value;
         this.valueServizio = valueServizio;
+        this.version = version;
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
 
     public int getName() {
@@ -92,6 +100,13 @@ public class Turno {
         this.id = id;
     }
 
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
 
     public int getValueServizio() {
         return valueServizio;
@@ -99,5 +114,29 @@ public class Turno {
 
     public void setValueServizio(int valueServizio) {
         this.valueServizio = valueServizio;
+    }
+
+    public LocalTime getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(LocalTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public LocalTime getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(LocalTime endTime) {
+        this.endTime = endTime;
+    }
+
+    @Override
+    public int compareTo(Shiffts o) {
+        Integer thisName = this.getName();
+        Integer tempName = o.getName();
+        int last = thisName.compareTo(tempName);
+        return last;
     }
 }

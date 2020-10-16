@@ -1,31 +1,39 @@
 package ARL.tesi.util;
 
 
-import ARL.tesi.modelobject.Turno;
+import ARL.tesi.modelobject.Shiffts;
+import ARL.tesi.repository.ShifftsRepository;
+import ARL.tesi.service.ShifftService;
 import org.apache.poi.hssf.util.CellReference;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 
 import java.io.BufferedInputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ShifftsReader {
 
 
 
-    public List<Turno> readExcell(MultipartFile file) throws IOException {
 
-        List<Turno> shiffts = new ArrayList<>();
+
+    public List<Shiffts> readExcell(MultipartFile file) throws IOException {
+
+        List<Shiffts> shiffts = new ArrayList<>();
 
         InputStream fis = new BufferedInputStream(file.getInputStream());
 
@@ -83,9 +91,25 @@ public class ShifftsReader {
             cell = row.getCell(cellReference.getCol());
             int valueServizio = (int) cell.getNumericCellValue();
 
+            // shifft startTime is in H6
+            cellReference = new CellReference("H6");
+            row = sheet.getRow(cellReference.getRow());
+            cell = row.getCell(cellReference.getCol());
+            double time = Math.ceil((cell.getNumericCellValue() *24)* Math.pow(10,2))/ Math.pow(10,2);
+            int hours = (int)time;
+            int minutes = (int) ((time - hours) * 60);
+            LocalTime startTime =  LocalTime.of(hours, minutes);
 
-            shiffts.add(new Turno(name, school, type, duration, value, valueServizio));
+            // shifft endTime is in I6
+            cellReference = new CellReference("I6");
+            row = sheet.getRow(cellReference.getRow());
+            cell = row.getCell(cellReference.getCol());
+            time = Math.ceil((cell.getNumericCellValue() *24)* Math.pow(10,2))/ Math.pow(10,2);
+            hours = (int) time;
+            minutes = (int) ((time - hours) * 60);
+            LocalTime endTime =  LocalTime.of(hours, minutes);
 
+            shiffts.add(new Shiffts(name, school, type, duration, value, valueServizio, 0, startTime, endTime));
 
         }
         return shiffts;

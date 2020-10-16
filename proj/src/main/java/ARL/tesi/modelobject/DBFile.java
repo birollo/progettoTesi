@@ -1,8 +1,10 @@
 package ARL.tesi.modelobject;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "files")
@@ -17,16 +19,21 @@ public class DBFile {
 
     private String fileType;
 
+    @JsonFormat(pattern="yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
+    private Date date;
+
     @Lob
     private byte[] data;
 
     public DBFile() {
     }
 
-    public DBFile(String fileName, String fileType, byte[] data) {
+    public DBFile(String fileName, String fileType, byte[] data, Date date) {
         this.fileName = fileName;
         this.fileType = fileType;
         this.data = data;
+        this.date = date;
     }
 
     public String getId() {
@@ -59,5 +66,13 @@ public class DBFile {
 
     public void setData(byte[] data) {
         this.data = data;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

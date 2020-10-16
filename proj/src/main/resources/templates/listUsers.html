@@ -6,7 +6,7 @@
 <body>
 <header th:insert="~{master::header}"></header>
 <h1>Lista Utenti</h1>
-<div class="card  col-md-10 align-self-center">
+<div class="card col-md-10 align-self-center">
     <h5 class="card-header">Autisti di linea</h5>
     <div class="card-body">
         <table class="table table-striped">
@@ -17,12 +17,10 @@
             </tr>
             </thead>
             <tbody>
-            <div th:each="autista: ${autisti}">
-                <tr>
+                <tr th:each="autista:${autisti}">
                     <td><a th:text="${autista.name}" th:href="@{'/user/' + ${autista.id}}">Nome</a></td>
                     <td th:text="${autista.surname}">Cognome</td>
                 </tr>
-            </div>
             </tbody>
         </table>
     </div>

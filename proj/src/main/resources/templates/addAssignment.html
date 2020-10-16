@@ -10,14 +10,30 @@
                     <div class="jumbotron p-4 text-center mb-2">
                         <h2>Assegnamento turno</h2>
                     </div>
-                    <form  id="register-form"  method="post" role="form" style="display: block;">
-                        <div class="form-group" tabindex="1">
-                            <label>Ruolo utente:</label>
-                            <select name="thisTurno" id="thisTurno">
+                    <form  id="register-form" method="post" role="form" style="display: block;">
+                        <div class="form-group">
+                            <label>Turno:</label>
+                            <select name="thisTurno" id="thisTurno" tabindex="1">
                                 <option id="option" value="" selected="selected" > -- seleziona un turno -- </option>
                                 <option data-id="idTurno" id="idTurno" name="idTurno" th:each="turno : ${turni}"  th:text="${turno.name}"></option>
                             </select>
                         </div>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col"> Fine turno ieri</th>
+                                    <th scope="col"> Differenza</th>
+                                    <th scope="col"> Inizio turno oggi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" id="thisEnd" th:text="${lastShifft.endTime}"></th>
+                                    <th scope="row" id="difference"></th>
+                                    <th scope="row" id="thisStart"></th>
+                                </tr>
+                            </tbody>
+                        </table>
                         <div class="form-group mt-5" id="validate">
                             <button class="btn btn-block btn-primary" tabindex="2" type="submit">Crea assegnazione</button>
                         </div>
@@ -30,6 +46,6 @@
         </div>
     </div>
 </div>
-<script th:src="@{/js/turniCreation.js}"></script>
+<script th:src="@{/js/addAssignment2.js}"></script>
 </body>
 </html>

@@ -22,8 +22,10 @@ public class User {
     private String username;
     private String password;
     @JsonFormat(pattern="yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date bDate;
     private double workingPercentage;
+
 
 
 

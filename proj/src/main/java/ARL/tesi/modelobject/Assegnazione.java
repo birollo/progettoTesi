@@ -1,11 +1,9 @@
 package ARL.tesi.modelobject;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -17,13 +15,15 @@ public class Assegnazione {
     @ManyToOne
     private User user;
     @ManyToOne
-    private Turno turno;
+    private Shiffts turno;
+    @JsonFormat(pattern="yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date date;
 
     public Assegnazione() {
     }
 
-    public Assegnazione(User user, Turno turno, Date date) {
+    public Assegnazione(User user, Shiffts turno, Date date) {
         this.user = user;
         this.turno = turno;
         this.date = date;
@@ -37,11 +37,11 @@ public class Assegnazione {
         this.user = user;
     }
 
-    public Turno getTurno() {
+    public Shiffts getTurno() {
         return turno;
     }
 
-    public void setTurno(Turno turno) {
+    public void setTurno(Shiffts turno) {
         this.turno = turno;
     }
 

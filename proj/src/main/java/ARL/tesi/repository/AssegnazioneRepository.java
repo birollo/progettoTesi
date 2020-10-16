@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ARL.tesi.modelobject.Assegnazione;
-import ARL.tesi.modelobject.Turno;
+import ARL.tesi.modelobject.Shiffts;
 import ARL.tesi.modelobject.User;
 
 import java.util.Date;
@@ -15,5 +15,7 @@ public interface AssegnazioneRepository extends JpaRepository<Assegnazione, Inte
     List<Assegnazione> findAssegnazioniByUser(User user);
     Assegnazione findAssegnazioneByDateAndUser(Date date, User user);
     @Transactional
-    void deleteAssegnazioneByDateAndTurnoAndUser(Date date, Turno turno, User user);
+    void deleteAssegnazioneByDateAndTurnoAndUser(Date date, Shiffts turno, User user);
+
+    Assegnazione getAssegnazioneByUserAndDate(User u, Date d);
 }
