@@ -2,9 +2,11 @@ var lista_persone = [];
 // let config = {};
 let GSTCState = {};
 
+let meseCorrente = {};
+let mesePrecedente = {};
 
 var katon = new Date();
-let from = new Date("2020/10/1").valueOf();
+let from = new Date("2021/01/01").valueOf();
 $('.from').datepicker({
     autoclose: true,
     minViewMode: 1,
@@ -41,36 +43,40 @@ async function aggiornamento(url = '', data = {}) {
 let fistLoad = 0;
 //todo: magari parametrizzare data
 function caricamento() {
+    let thisDate = new Date(from.valueOf()).toISOString();
     $(document).ready(function () {
         $.ajax({
             type: 'GET',
+            // dataType: 'text',
+            data: {date: thisDate},
             // async: true,
             url: '/listaPersone',
             contentType: 'text'
         }).done(function (response) {
 
-
+            items = {};
             lista_persone = response;
 
             for (var x = 0; x < lista_persone.length; x++) {
                 // console.log("x" + lista_persone.length);
-                if (lista_persone[x].turni.length === 0) {
+                if (lista_persone[x].u.turni.length === 0) {
 
                 } else {
-                    for (var y = 0; y < lista_persone[x].turni.length; y++) {
-                        let thisId = lista_persone[x].turni[y].turno.name;
-                        let thisName = lista_persone[x].name;
-                        let thisSurname = lista_persone[x].surname;
-                        let wrongDate = new Date(lista_persone[x].turni[y].date);
+                    for (var y = 0; y < lista_persone[x].u.turni.length; y++) {
+                        let thisId = lista_persone[x].u.turni[y].turno.name;
+                        let thisName = lista_persone[x].u.name;
+                        let thisSurname = lista_persone[x].u.surname;
+                        let wrongDate = new Date(lista_persone[x].u.turni[y].date);
                         let thisDate = new Date();
                         thisDate.setTime(wrongDate.getTime() + 8.64e+7);
                         // let thisDate = new Date(lista_persone[x].turni[y].date).toString();
 
-                        let color = choseItemColor(lista_persone[x].turni[y].turno.tipo);
+                        let color = choseItemColor(lista_persone[x].u.turni[y].turno.tipo);
                         createItem(thisId, thisName + " " + thisSurname, thisDate, color);
+
                     }
                 }
-                createRow(lista_persone[x].name + " " + lista_persone[x].surname);
+                createRow(lista_persone[x].u.name + " " + lista_persone[x].u.surname , lista_persone[x].totThisMonth , lista_persone[x].totPreviousMonth);
             }
 
             createColumns();
@@ -119,7 +125,7 @@ function caricamento() {
                 var lista_righe = document.getElementsByClassName("gantt-schedule-timeline-calendar__list-column-row");
                 // console.log("k" + lista_righe.length);
                 for (var k = 0; k < lista_persone.length; k++) {
-                    var thisId = lista_persone[k].id;
+                    var thisId = lista_persone[k].u.id;
                     var aTag = document.createElement('a');
                     aTag.setAttribute('href', "/user/" + thisId);
                     aTag.innerText = "->";
@@ -161,12 +167,15 @@ function choseItemColor(type) {
 }
 
 const rows = {};
-
-function createRow(i) {
+function createRow(i, current,previos) {
     const id = i.toString();
+    const prec = previos.toString();
+    const corr = current.toString();
     rows[id] = {
         id,
-        label: `${id}`,
+        nome: `${id}`,
+        precedente: `${prec}`,
+        corrente: `${corr}`,
     };
 }
 
@@ -180,29 +189,31 @@ let columns = {};
 
 function createColumns() {
     columns = {
+        percent: 100,
+        resizer: {
+            inRealTime: true
+        },
         data: {
-            'label-column-or-whatever': {
-                id: 'label-column-or-whatever',
-                data: 'label',
+            nome: {
+                id: 'nome',
+                data: 'nome',
                 width: 125,
                 // expander: true,
                 header: {
                     content: 'Cognome'
                 }
             },
-            'Mese precedente': {
-                id: 'Mese precedente',
-                isHTML: true,
-                data: '<a>profilo</a>',
+            precedente: {
+                id: 'precedente',
+                data:'precedente',
                 width: 125,
                 header: {
                     content: 'Mese precedente'
                 }
             },
-            'Mese corrente': {
-                id: 'Mese corrente',
-                isHTML: true,
-                data: '<a>profilo</a>', //todo: controllare se si puo usare data al posto di innerHTML
+            corrente: {
+                id: 'corrente',
+                data: 'corrente', //todo: controllare se si puo usare data al posto di innerHTML
                 width: 125,
                 header: {
                     content: 'Mese corrente'
@@ -212,7 +223,7 @@ function createColumns() {
     }
 }
 
-const items = {};
+let items = {};
 let count = 0;
 
 function createItem(id, name, date, color) {
@@ -366,16 +377,16 @@ function createConfig() {
 
     const config = {
         plugins: [
-            ItemMovement({
-                moveable: false,
-                resizable: false,
-                collisionDetection: true
-            }),
-            Selection({
-                selected(data, type) {
-                    console.log(data, type);
-                }
-            }),
+            // ItemMovement({
+            //     moveable: false,
+            //     resizable: false,
+            //     collisionDetection: true
+            // }),
+            // Selection({
+            //     selected(data, type) {
+            //         console.log(data, type);
+            //     }
+            // }),
             CalendarScroll(),
             // WeekendHighlight()
         ],

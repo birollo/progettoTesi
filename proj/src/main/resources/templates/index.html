@@ -14,9 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
             crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
+    <script th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}" type="text/javascript"></script>
 
     <link rel="stylesheet" th:href="@{/css/table.css}" type="text/css"/>
     <link rel="stylesheet" th:href="@{/css/calendar.css}" type="text/css"/>
@@ -45,9 +43,15 @@
 
 
 <!--monthpicker-->
-<div class="form-group">
+<div class="form-group form-inline">
     <!--<label>First check in:</label>-->
-    <input type="text" id="monthChose" class="col-sm-2 form-control form-control-1 input-sm from" placeholder="10/2020" >
+    <input type="text" id="monthChose" class="col-sm-2 form-control form-control-1 input-sm from" placeholder="Scegli mese">
+    <button type="button" id="buttonCheck" class="btn btn-primary mb-2">Controlla tabella</button>
+    <button type="button" id="buttonGenerate" class="btn btn-primary mb-2">Genera tabella</button>
+</div>
+<div id="errorTable" class="list-group">
+
+
 </div>
 
 <!--tabella-->
@@ -59,7 +63,7 @@
 <!--<div id="myModal" class="modal"></div>-->
 
 
-<script type="text/javascript" th:src="@{/js/GSTC/ItemMovement.plugin.js}"></script>
+<!--<script type="text/javascript" th:src="@{/js/GSTC/ItemMovement.plugin.js}"></script>-->
 <script type="text/javascript" th:src="@{/js/GSTC/Selection.plugin.js}"></script>
 <script type="text/javascript" th:src="@{/js/GSTC/CalendarScroll.plugin.js}"></script>
 <script type="text/javascript" th:src="@{/js/GSTC/WeekendHighlight.plugin.js}"></script>
@@ -68,6 +72,8 @@
 <!--<script type="text/javascript" th:src="@{/js/pageStart.js}"></script>-->
 <script type="text/javascript" th:src="@{/js/calendar.js}"></script>
 <script type="text/javascript" th:src="@{/js/monthSwitcher.js}"></script>
+<script type="text/javascript" th:src="@{/js/checkTable.js}"></script>
+<script type="text/javascript" th:src="@{/js/generateTable.js}"></script>
 
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>

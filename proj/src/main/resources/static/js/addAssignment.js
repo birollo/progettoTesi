@@ -1,3 +1,16 @@
+
+//todo: gif durante caricamento
+// These will be automatically called when Ajax requests begin or end.
+// $.ajaxStart(function () {
+//     $('#loading').show();  // show loading indicator
+// });
+//
+// $.ajaxStop(function()
+// {
+//     $('#loading').hide();  // hide loading indicator
+// });
+
+
 const selectElement = document.getElementById('thisTurno');
 const difference = document.getElementById('difference');
 

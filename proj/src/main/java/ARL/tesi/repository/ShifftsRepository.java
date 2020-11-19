@@ -8,9 +8,12 @@ import java.util.List;
 
 @Repository
 public interface ShifftsRepository extends JpaRepository<Shiffts, Integer> {
-        Shiffts getByName(int name);
-        Shiffts getFirstByName(int name);
-        List<Shiffts> findByName(int name);
-        Shiffts getByNameAndVersion(int name, int version);
+        Shiffts getByName(String name);
+        Shiffts getFirstByName(String name);
+        List<Shiffts> findByName(String name);
+        Shiffts getByNameAndVersion(String name, int version);
+
+
+
 
 }

@@ -3,8 +3,11 @@ package ARL.tesi.service;
 import ARL.tesi.exception.FileStorageException;
 import ARL.tesi.exception.MyFileNotFoundException;
 import ARL.tesi.modelobject.DBFile;
+import ARL.tesi.modelobject.Shiffts;
 import ARL.tesi.repository.DBFileRepository;
 import ARL.tesi.repository.ShifftsRepository;
+import ARL.tesi.util.ShifftsReader;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -14,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.*;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class DBFileStorageService {
@@ -24,23 +28,46 @@ public class DBFileStorageService {
     @Autowired
     private ShifftsRepository shifftsRepository;
 
+    @Autowired
+    ShifftService shifftService;
 
-    public DBFile storeFile(MultipartFile file) {
+    @Autowired
+    ShifftsReader shifftsReader;
+
+    public DBFile storeFile(MultipartFile file) throws Exception {
         // Normalize file name
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+        System.out.println("dentro storeFile");
 //        String fileName = file.getName();
         try {
             // Check if the file's name contains invalid characters
-            if(fileName.contains("..")) {
+            if (fileName.contains("..")) {
                 throw new FileStorageException("Non e stato possibile trovare il file: " + fileName + " perché contiene caratteri invalidi");
             }
+            if (Objects.requireNonNull(file.getOriginalFilename()).contains("xlsx")) {
+                try {
+                    List<Shiffts> shiffts = shifftsReader.readExcell(file);
+                    for (Shiffts s : shiffts) {
+                        if (shifftService.getByName(s.getName()).size() > 0) {
+                            s.setVersion(shifftService.getLastByName(s.getName()).getVersion() + 1);
+                            shifftService.save(s);
+                        } else {
+                            shifftService.save(s);
+                        }
+                    }
+                } catch (Exception e) {
+                    throw e;
+                }
+                //todo: tolto per deploy
+            }
+
 
             //todo: assegno fileType a dipendenza del estensione
             DBFile dbFile = new DBFile(fileName, file.getContentType(), file.getBytes(), new Date());
 
             return dbFileRepository.save(dbFile);
         } catch (IOException ex) {
-            throw new FileStorageException("Non è stato possibile salvare il file: " + fileName , ex);
+            throw new FileStorageException("Non è stato possibile salvare il file: " + fileName, ex);
         }
     }
 
@@ -49,13 +76,13 @@ public class DBFileStorageService {
                 .orElseThrow(() -> new MyFileNotFoundException("File non presente" + fileId));
     }
 
-    public List<DBFile> getAllByType(String type){
+    public List<DBFile> getAllByType(String type) {
 //        return dbFileRepository.getAllByFileType(type);
         return dbFileRepository.getAllByFileTypeOrderByDateDesc(type);
 
     }
 
-    public DBFile getFileByName(String name){
+    public DBFile getFileByName(String name) {
         return dbFileRepository.getFirstByFileName(name);
     }
 }

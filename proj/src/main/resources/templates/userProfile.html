@@ -1,122 +1,182 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.springframework.org/schema/data/jaxb" xmlns:sec="http://www.w3.org/1999/xhtml">
-<head th:insert="~{master::head('userProfile')}"></head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-    <!--<link rel="stylesheet" th:href="@{/css/userProfile.css}" type="text/css"/>-->
+    <meta charset="utf8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Profilo utente</title>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" th:href="@{/css/userProfile.css}" type="text/css"/>
+    <!--<link rel="stylesheet" th:href="@{/css/calendar.css}" type="text/css"/>-->
+    <script src="https://cdn.jsdelivr.net/npm/gantt-schedule-timeline-calendar"></script>
+
+    <!--datepicker-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css">
 </head>
-<body>
 <header th:insert="~{master::header}"></header>
+<!-->
 
-<main>
-    <div>
-        <div sec:authorize="hasRole('ROLE_ADMIN')" class="panel-heading">
-            <div class="btn-group" style="float:right;">
-                <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="glyphicon glyphicon-cog"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
-                </button>
-                <ul style="background-color: #EDEDED" class="dropdown-menu">
-                    <li><a href="#" id="edit" style="color: blue"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Edit</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a style="color: red" th:href="@{'/user/'+${user.id}+'/delete'}"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Delete</a></li>
-                </ul>
-            </div>
-            <div class="clearfix"></div>
+
+<div>
+    <div sec:authorize="hasRole('ROLE_ADMIN')" class="panel-heading">
+        <div class="btn-group" style="float:right;">
+            <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                <span class="glyphicon glyphicon-cog"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul style="background-color: #EDEDED" class="dropdown-menu">
+                <li><a th:href="@{'/user/'+${user.id}+'/edit'}" id="edit" style="color: blue"><span
+                        class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Edit</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a style="color: red" th:href="@{'/user/'+${user.id}+'/delete'}"><span
+                        class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Delete</a></li>
+            </ul>
         </div>
-
-
-        <h1 class="item item-divider">User Profile</h1><br>
-        <div id="details" style="display: block">
-            <p>Nome: <a th:text="${user.name}"></a></p>
-            <p>Cognome: <a th:text="${user.surname}"></a></p>
-            <p>Username: <a th:text="${user.username}"></a></p>
-            <p>Data di nascita: <a type="text" th:text="${user.bDate}"></a></p>
-            <p>Ruolo: <a th:text="${user.role.name}"></a></p>
-        </div>
-        <form th:object="${user}" id="change" method="post" enctype="multipart/form-data" style="display: none">
-            <label class="col-sm-2 col-form-label" style="color: #48b5e0">Nome:</label>
-            <input type="text" th:field="*{name}" name="name" id="name" class="form-control input-sm chat-input"
-                   placeholder="Name"><br>
-            <label class="col-sm-2 col-form-label" style="color: #48b5e0">Cognome:</label>
-            <input type="text" th:field="*{surname}" name="surname" id="surname"
-                   class="form-control input-sm chat-input" placeholder="Surname"><br>
-            <label class="col-sm-2 col-form-label" style="color: #48b5e0">Username:</label>
-            <input type="text" th:field="*{username}" name="name" id="username" class="form-control input-sm chat-input"
-                   placeholder="Username"><br>
-            <label class="col-sm-2 col-form-label" style="color: #48b5e0">Immagine:</label>
-            <input id="file" type="file" name="file" accept="image/png" class="btn btn-primary btn-lg disabled"
-                   lang="it">
-            <br>
-            <input type="submit" name="submit" id="submit" value="Submit"><br>
-        </form>
+        <div class="clearfix"></div>
     </div>
-    <div class="center row" th:object="${user}">
-
-        <div class="col-md-12">
-            <h3 class="item item-divider">Resoconto</h3><br>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">min. secondo L.F.</th>
-                    <th scope="col">Tot. min. effettuati</th>
-                    <th scope="col">riporto mese prec.</th>
-                    <th scope="col">riporto min mese succ.</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>0</td>
-                    <td th:text="${totMin}">Tot. min. effettuati</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="col-md-12">
-            <h3 class="item item-divider">Lista turni</h3><br>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">Turno</th>
-                    <th scope="col">Data</th>
-                    <th scope="col">Valore Turno</th>
-                    <th scope="col">Totale minuti</th>
-                    <th  sec:authorize="hasRole('ROLE_ADMIN')"scope="col">Edita</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="turno: ${turni}">
-                    <td><a th:href="@{'/turno/' + ${turno.turno.id}}" th:text="${turno.turno.name}"></a></td>
-                    <td th:text="${turno.date}"></td>
-                    <td th:text="${turno.turno.value}"></td>
-                    <td th:text="${turno.turno.duration}"></td>
-                    <td sec:authorize="hasRole('ROLE_ADMIN')">
-                        <a th:href="@{'/turno/' + ${turno.turno.id} + '/delete'}">
-                            <i class="fa fa-trash" style="color: black"></i>
-                        </a>
-                        <a th:href="@{'/turno/' + ${turno.turno.id} + '/edit'}">
-                            <i class="fa fa-edit" style="color: black"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th>Tot. min. effettuati</th>
-                    <th th:text="${totMin}">0</th>
-                    <th sec:authorize="hasRole('ROLE_ADMIN')"></th>
-                </tr>
-                </tbody>
 
 
-            </table>
-        </div>
-
-
+    <h1 class="item item-divider">User Profile</h1><br>
+    <div id="details" style="display: block">
+        <p>Nome: <a th:text="${user.name}"></a></p>
+        <p>Cognome: <a th:text="${user.surname}"></a></p>
+        <p>Username: <a th:text="${user.username}"></a></p>
+        <p>Data di nascita: <a type="text" th:text="${user.bDate}"></a></p>
+        <p>Ruolo: <a th:text="${user.role.name}"></a></p>
     </div>
-</main>
+    <!--<form th:object="${user}" id="change" method="post" enctype="multipart/form-data" style="display: none">-->
+    <!--<label class="col-sm-2 col-form-label" style="color: #48b5e0">Nome:</label>-->
+    <!--<input type="text" th:field="*{name}" name="name" id="name" class="form-control input-sm chat-input"-->
+    <!--placeholder="Name"><br>-->
+    <!--<label class="col-sm-2 col-form-label" style="color: #48b5e0">Cognome:</label>-->
+    <!--<input type="text" th:field="*{surname}" name="surname" id="surname"-->
+    <!--class="form-control input-sm chat-input" placeholder="Surname"><br>-->
+    <!--<label class="col-sm-2 col-form-label" style="color: #48b5e0">Username:</label>-->
+    <!--<input type="text" th:field="*{username}" name="name" id="username" class="form-control input-sm chat-input"-->
+    <!--placeholder="Username"><br>-->
+    <!--<label class="col-sm-2 col-form-label" style="color: #48b5e0">Immagine:</label>-->
+    <!--<input id="file" type="file" name="file" accept="image/png" class="btn btn-primary btn-lg disabled"-->
+    <!--lang="it">-->
+    <!--<br>-->
+    <!--<input type="submit" name="submit" id="submit" value="Submit"><br>-->
+    <!--</form>-->
+</div>
+<!--monthpicker-->
+<div class="form-group">
+    <!--<label>First check in:</label>-->
+    <input type="text" id="monthChose" class="col-sm-2 form-control form-control-1 input-sm from"
+           placeholder="Scegli mese">
+</div>
+<!--<div class="center row" th:object="${user}">-->
+
+<div class="row justify-content-center" >
+    <div class="col-auto">
+        <table class="table table-responsive table-striped w-auto" style="width: 96%; position: center">
+            <thead>
+            <tr>
+                <th scope="col">Data</th>
+                <th scope="col">Turno</th>
+                <th scope="col">Da</th>
+                <th scope="col">A</th>
+                <th scope="col">Turno di servizio</th>
+                <th scope="col">Valore turno</th>
+                <th scope="col">Totale minuti</th>
+                <th scope="col">Vacanza</th>
+                <th scope="col">Feriale</th>
+                <th scope="col">Sabati</th>
+                <th scope="col">Dom. e festivi</th>
+                <th scope="col">Malattia</th>
+            </tr>
+            </thead>
+            <tbody id="report"></tbody>
+        </table>
+    </div>
+</div>
+
+
+
+<!--<div class="col-md-12">-->
+<!--<h3 class="item item-divider">Resoconto</h3><br>-->
+<!--<table class="table table-striped">-->
+<!--<thead>-->
+<!--<tr>-->
+<!--<th scope="col">min. secondo L.F.</th>-->
+<!--<th scope="col">Tot. min. effettuati</th>-->
+<!--<th scope="col">riporto mese prec.</th>-->
+<!--<th scope="col">riporto min mese succ.</th>-->
+<!--</tr>-->
+<!--</thead>-->
+<!--<tbody>-->
+<!--<tr>-->
+<!--<td>0</td>-->
+<!--<td th:text="${totMin}">Tot. min. effettuati</td>-->
+<!--<td>0</td>-->
+<!--<td>0</td>-->
+<!--</tr>-->
+<!--</tbody>-->
+<!--</table>-->
+<!--</div>-->
+
+<!--<div class="col-md-12">-->
+<!--<h3 class="item item-divider">Lista turni</h3><br>-->
+<!--<table class="table table-striped">-->
+<!--<thead>-->
+<!--<tr>-->
+<!--<th scope="col">Turno</th>-->
+<!--<th scope="col">Data</th>-->
+<!--<th scope="col">Valore Turno</th>-->
+<!--<th scope="col">Totale minuti</th>-->
+<!--<th  sec:authorize="hasRole('ROLE_ADMIN')"scope="col">Edita</th>-->
+<!--</tr>-->
+<!--</thead>-->
+<!--<tbody>-->
+<!--<tr th:each="turno: ${turni}">-->
+<!--<td><a th:href="@{'/turno/' + ${turno.turno.id}}" th:text="${turno.turno.name}"></a></td>-->
+<!--<td th:text="${turno.date}"></td>-->
+<!--<td th:text="${turno.turno.value}"></td>-->
+<!--<td th:text="${turno.turno.duration}"></td>-->
+<!--<td sec:authorize="hasRole('ROLE_ADMIN')">-->
+<!--<a th:href="@{'/turno/' + ${turno.turno.id} + '/delete'}">-->
+<!--<i class="fa fa-trash" style="color: black"></i>-->
+<!--</a>-->
+<!--<a th:href="@{'/turno/' + ${turno.turno.id} + '/edit'}">-->
+<!--<i class="fa fa-edit" style="color: black"></i>-->
+<!--</a>-->
+<!--</td>-->
+<!--</tr>-->
+<!--<tr>-->
+<!--<th></th>-->
+<!--<th></th>-->
+<!--<th>Tot. min. effettuati</th>-->
+<!--<th th:text="${totMin}">0</th>-->
+<!--<th sec:authorize="hasRole('ROLE_ADMIN')"></th>-->
+<!--</tr>-->
+<!--</tbody>-->
+
+
+<!--</table>-->
+<!--</div>-->
+
+
+<!--</div>-->
 <script type="text/javascript" th:src="@{/js/userProfile.js}"></script>
+
+<script type="text/javascript" th:src="@{/js/reports.js}"></script>
+<script type="text/javascript" th:src="@{/js/monthSwitcher.js}"></script>
+
 </body>
 </html>

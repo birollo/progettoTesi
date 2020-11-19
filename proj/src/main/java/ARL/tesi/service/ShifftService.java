@@ -22,7 +22,7 @@ public class ShifftService {
         shifftsRepository.save(s);
     }
 
-    public List<Shiffts> getByName(int name){return shifftsRepository.findByName(name);}
+    public List<Shiffts> getByName(String name){return shifftsRepository.findByName(name);}
 
     public List<Shiffts> getLastVersionOfAll(){
         //prendo tutti
@@ -46,7 +46,7 @@ public class ShifftService {
 
     }
 
-    public Shiffts getLastByName(int name){
+    public Shiffts getLastByName(String name){
         List<Shiffts> oldShiffts = shifftsRepository.findByName(name);
         if (oldShiffts.size() == 0){
             return null;
@@ -59,5 +59,17 @@ public class ShifftService {
             }
             return shifftsRepository.getByNameAndVersion(name, k);
         }
+    }
+
+    public List<Shiffts> getAllByDateAndSchool(String date, Boolean school){
+        List<Shiffts> shiffts = getLastVersionOfAll();
+        List<Shiffts> shifftsList = new ArrayList<>();
+        for (Shiffts s: shiffts){
+            if (s.getDays().equals(date) && s.isSchool() == school){
+                shifftsList.add(s);
+            }
+        }
+
+        return shifftsList;
     }
 }

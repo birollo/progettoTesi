@@ -1,5 +1,7 @@
 package ARL.tesi.modelobject;
 
+import org.springframework.lang.NonNull;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,15 +14,16 @@ public class Shiffts implements Comparable<Shiffts> {
     @Id
     @GeneratedValue
     private int id;
-    private int name;
+    @NonNull
+    private String name;
     private boolean school;
     private int duration;
     private int value;
-    private int valueServizio;
     private String tipo;
     private int version;
     private LocalTime startTime;
     private LocalTime endTime;
+    private String days;
 
     @OneToMany
     private List<Assegnazione> assegnazione;
@@ -30,24 +33,26 @@ public class Shiffts implements Comparable<Shiffts> {
     public Shiffts() {
     }
 
-    public Shiffts(int name, boolean school , String tipo, int duration,
-                   int value, int valueServizio, int version, LocalTime startTime, LocalTime endTime){
+    public Shiffts(String name, boolean school , String tipo, String days, int duration,
+                   int value, int version, LocalTime startTime, LocalTime endTime){
         this.name = name;
         this.school = school;
         this.tipo = tipo;
         this.duration = duration;
         this.value = value;
-        this.valueServizio = valueServizio;
         this.version = version;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.days = days;
     }
 
-    public int getName() {
+
+
+    public String getName() {
         return name;
     }
 
-    public void setName(int name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -95,6 +100,13 @@ public class Shiffts implements Comparable<Shiffts> {
         return id;
     }
 
+    public String getDays() {
+        return days;
+    }
+
+    public void setDays(String days) {
+        this.days = days;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -106,14 +118,6 @@ public class Shiffts implements Comparable<Shiffts> {
 
     public void setVersion(int version) {
         this.version = version;
-    }
-
-    public int getValueServizio() {
-        return valueServizio;
-    }
-
-    public void setValueServizio(int valueServizio) {
-        this.valueServizio = valueServizio;
     }
 
     public LocalTime getStartTime() {
@@ -134,8 +138,8 @@ public class Shiffts implements Comparable<Shiffts> {
 
     @Override
     public int compareTo(Shiffts o) {
-        Integer thisName = this.getName();
-        Integer tempName = o.getName();
+        String thisName = this.getName();
+        String tempName = o.getName();
         int last = thisName.compareTo(tempName);
         return last;
     }

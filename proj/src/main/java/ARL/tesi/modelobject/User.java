@@ -27,7 +27,7 @@ public class User {
     private double workingPercentage;
 
 
-
+    //todo:getMonthReport
 
     private int holidays;
     private int hiringYear;

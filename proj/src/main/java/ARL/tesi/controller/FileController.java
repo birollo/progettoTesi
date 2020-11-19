@@ -52,46 +52,21 @@ public class FileController {
     @Autowired
     private ShifftService shifftService;
 
-    @Autowired
-    private PDFRotation pdfRotation;
+//    @Autowired
+//    private PDFRotation pdfRotation;
 
     @Autowired
     private PersonService personService;
 //    @Autowired
 //    private PDFRotation pdfRotation;
 
-    @Autowired
-    private ExcelToPDF excelToPDF;
-
+//    @Autowired
+//    private ExcelToPDF excelToPDF;
 
     @PostMapping("/uploadFile")
-    public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file) {
+    public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file) throws Exception {
         DBFile dbFile = dbFileStorageService.storeFile(file);
-        if (Objects.requireNonNull(file.getOriginalFilename()).contains("xlsx")){
-            ShifftsReader shifftsReader = new ShifftsReader();
 
-
-            //todo: tolto per deploy
-//            try {
-//                excelToPDF.convert(file);
-//            } catch (IOException | DocumentException e) {
-//                e.printStackTrace();
-//            }
-
-
-            try {
-                for (Shiffts t : shifftsReader.readExcell(file)){
-                    if (shifftService.getByName(t.getName()).size() > 0){
-                        t.setVersion(shifftService.getLastByName(t.getName()).getVersion()+1);
-                        shifftService.save(t);
-                    }else{
-                        shifftService.save(t);
-                    }
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/downloadFile/")
@@ -102,18 +77,20 @@ public class FileController {
                 file.getContentType(), file.getSize());
     }
 
-    @PostMapping("/uploadMultipleFiles")
-    public List<UploadFileResponse> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files) {
-        return Arrays.asList(files)
-                .stream()
-                .map(file -> uploadFile(file))
-                .collect(Collectors.toList());
-    }
+
+//    @PostMapping("/uploadMultipleFiles")
+//    public List<UploadFileResponse> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files) {
+//        return Arrays.asList(files)
+//                .stream()
+//                .map(file -> uploadFile(file))
+//                .collect(Collectors.toList());
+//    }
 
 
     @GetMapping("/download")
     public ResponseEntity<Resource> download(@PathVariable String fileId) {
         //Load file from database
+        //todo: filename
         DBFile dbFile = dbFileStorageService.getFileByName("provaScript2.xlsx");
 
         return ResponseEntity.ok()
@@ -134,35 +111,36 @@ public class FileController {
                 .body(new ByteArrayResource(dbFile.getData()));
     }
 
-    @GetMapping("/rotation/download")
-    public ResponseEntity<InputStreamResource> downloadPdf()
-    {
-        Date deteChose = new Date();
-        List<User> users = personService.getUsersByRole("Autista di linea");
-        String pathfile = pdfRotation.createRotationPDF(context, deteChose, users);
-        try
-        {
-            File file = new File(pathfile);
-
-            //salvataggio in DB
-            MultipartFile multipartFile = new MockMultipartFile(file.getName(), new FileInputStream(file));
-            dbFileStorageService.storeFile(multipartFile);
-
-            HttpHeaders respHeaders = new HttpHeaders();
-            MediaType mediaType = MediaType.parseMediaType("application/pdf");
-            respHeaders.setContentType(mediaType);
-            respHeaders.setContentLength(file.length());
-            respHeaders.setContentDispositionFormData("attachment", file.getName());
-            InputStreamResource isr = new InputStreamResource(new FileInputStream(file));
-            return new ResponseEntity<InputStreamResource>(isr, respHeaders, HttpStatus.OK);
-        }
-        catch (Exception e)
-        {
-            String message = "Errore nel download del file;";
-
-            return new ResponseEntity<InputStreamResource>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+//    @GetMapping("/rotation/download")
+//    public ResponseEntity<InputStreamResource> downloadPdf()
+//    {
+//        Date deteChose = new Date();
+//        List<User> users = personService.getUsersByRole("Autista di linea");
+////        String pathfile = pdfRotation.createRotationPDF(context, deteChose, users);
+//
+//        try
+//        {
+////            File file = new File(pathfile);
+//
+//            //salvataggio in DB
+////            MultipartFile multipartFile = new MockMultipartFile(file.getName(), new FileInputStream(file));
+////            dbFileStorageService.storeFile(multipartFile);
+//
+//            HttpHeaders respHeaders = new HttpHeaders();
+//            MediaType mediaType = MediaType.parseMediaType("application/pdf");
+//            respHeaders.setContentType(mediaType);
+//            respHeaders.setContentLength(file.length());
+//            respHeaders.setContentDispositionFormData("attachment", file.getName());
+//            InputStreamResource isr = new InputStreamResource(new FileInputStream(file));
+//            return new ResponseEntity<InputStreamResource>(isr, respHeaders, HttpStatus.OK);
+//        }
+//        catch (Exception e)
+//        {
+//            String message = "Errore nel download del file;";
+//
+//            return new ResponseEntity<InputStreamResource>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 
 //    @GetMapping(value="/rotation/download")
 //    public ResponseEntity<Resource> downloadRotationPDF(){

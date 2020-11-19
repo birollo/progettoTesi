@@ -13,7 +13,7 @@
                     <form id="register-form" th:object="${turno}" method="post" role="form" style="display: block;">
                         <div class="form-group">
                             <label>Nome turno</label>
-                            <input type="number" class="form-control input-sm chat-input" id="name" tabindex="1"
+                            <input type="text" class="form-control input-sm chat-input" id="name" tabindex="1"
                                    th:field="*{name}" placeholder="Nome">
                         </div>
                         <div class="form-group">
@@ -23,24 +23,39 @@
                         </div>
                         <div class="form-group">
                             <label>Valore servizio(in minuti)</label>
-                            <input type="number" class="form-control input-sm chat-input" id="valueServizio" tabindex="3"
-                                   th:field="*{valueServizio}" placeholder="Valore servizio">
+                            <input type="number" class="form-control input-sm chat-input" id="value" tabindex="3"
+                                   th:field="*{value}" placeholder="Valore turno">
+                        </div>
+                        <div class="form-group">
+                            <label>Giorni (es. LU-VE)</label>
+                            <input type="text" class="form-control input-sm chat-input" id="days" tabindex="4"
+                                   th:field="*{days}" placeholder="Valore turno">
+                        </div>
+                        <div class="form-group" tabindex="5">
+                            <label>Tipo:</label>
+                            <select name="role" id="role" th:field="*{tipo}">
+                                <option id="option" value="" selected="selected" > -- select an option -- </option>
+                                <option value="Mattina">Mattina</option>
+                                <option value="Meridiano">Meridiano</option>
+                                <option value="Notturno">Notturno</option>
+                                <option value="Riposo">Riposo</option>
+                            </select>
                         </div>
                         <!--hour picker-->
                         <div class="row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-6" >
                                 <label>Ora inizio turno</label>
-                                <input th:field="*{startTime}" type="time" class="form-control input-sm chat-input" name="time1" id="time1" />
+                                <input th:field="*{startTime}" tabindex="6" type="time" class="form-control input-sm chat-input" name="time1" id="time1" />
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Ora fine turno</label>
-                                <input th:field="*{endTime}" type="time" class="form-control input-sm chat-input" name="time2" id="time2" />
+                                <input th:field="*{endTime}" tabindex="7" type="time" class="form-control input-sm chat-input" name="time2" id="time2" />
                             </div>
                         </div>
                         <!--check school-->
                         <div class="form-group">
                             <label>Scolastico</label>
-                            <input type="checkbox" class="form-control input-sm leftBottom" id="school" tabindex="4"
+                            <input type="checkbox" class="form-control input-sm leftBottom" id="school" tabindex="8"
                                    th:field="*{school}">
                         </div>
                         <!--submit-->

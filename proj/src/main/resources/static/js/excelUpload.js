@@ -30,7 +30,7 @@ function uploadSingleFile(file) {
             singleFileUploadSuccess.style.display = "none";
             singleFileUploadError.innerHTML = (response && response.message) || "Errore durante il caricamento del file";
         }
-    }
+    };
 
     xhr.send(formData);
 }

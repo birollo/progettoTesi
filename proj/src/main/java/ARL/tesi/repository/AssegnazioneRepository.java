@@ -18,4 +18,6 @@ public interface AssegnazioneRepository extends JpaRepository<Assegnazione, Inte
     void deleteAssegnazioneByDateAndTurnoAndUser(Date date, Shiffts turno, User user);
 
     Assegnazione getAssegnazioneByUserAndDate(User u, Date d);
+    List<Assegnazione> findByUserAndDateBetween(User u, Date s, Date e);
+    List<Assegnazione> findByUserAndDateBetweenOrderByDate(User u, Date s, Date e);
 }

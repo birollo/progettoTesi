@@ -24,6 +24,10 @@
 
     </div>
 
+    <div style="min-height: 60px;">
+        <div th:if="${param.error}" class="alert alert-danger" role="alert" th:value="${param.error}"></div>
+    </div>
+
     <!--<div>-->
         <!--<p><a href="/downloadFile/1">Download excel corrente</a></p>-->
     <!--</div>-->

@@ -13,4 +13,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     List<User> getUsersByRole(Role r);
     User findById(int id);
     User getUsersByNameAndSurname(String name, String surname);
+    User save(User u);
+
 }
