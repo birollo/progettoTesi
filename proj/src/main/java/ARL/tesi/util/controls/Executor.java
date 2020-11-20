@@ -20,7 +20,43 @@ public class Executor {
     @Autowired
     private AssegnazioneService assegnazioneService;
 
-    public List<String> executeAllCostrains(User user, Date date){
+    public List<String> executeAllCostrains(List<Assegnazione> a , Date date){
+//        long startControlsTime = System.nanoTime();
+        List<String> responses = new ArrayList<>();
+        List<Assegnazione> assegnaziones;
+        V01 v01 = new V01();
+        V11 v11 = new V11();
+        V12 v12 = new V12();
+        V102 v102 = new V102();
+        V112 v112 = new V112();
+
+        assegnaziones = a;
+        //todo: parametrizzare 7 o esecuzioni a dipendenza dellla lunghezza
+        if (assegnaziones.size() != 0 && assegnaziones.size() > 6 ){
+            String sV01 = v01.execute(assegnaziones);
+            String sV11 = v11.execute(assegnaziones);
+            String sV12 = v12.execute(assegnaziones);
+            String sV102 = v102.execute(assegnaziones);
+            String sV112 = v112.execute(assegnaziones);
+
+            responses.add(sV01);
+            responses.add(sV11);
+            responses.add(sV12);
+            responses.add(sV102);
+            responses.add(sV112);
+        }else {
+            responses = new ArrayList<>();
+            responses.add("OK");
+        }
+
+//        long endControlsTime = System.nanoTime();
+//        long controlsDuration = (endControlsTime - startControlsTime)/1000000;
+//        System.out.println("\tControls ended in "+controlsDuration+"ms");
+        return responses;
+    }
+
+    public List<String> executeAllCostrains1(User user, Date date){
+//        long startControlsTime = System.nanoTime();
         List<String> responses = new ArrayList<>();
         List<Assegnazione> assegnaziones;
         V01 v01 = new V01();
@@ -37,6 +73,7 @@ public class Executor {
                 String sV12 = v12.execute(assegnaziones);
                 String sV102 = v102.execute(assegnaziones);
                 String sV112 = v112.execute(assegnaziones);
+
                 responses.add(sV01);
                 responses.add(sV11);
                 responses.add(sV12);
@@ -50,6 +87,9 @@ public class Executor {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+//        long endControlsTime = System.nanoTime();
+//        long controlsDuration = (endControlsTime - startControlsTime)/1000000;
+//        System.out.println("\tControls ended in "+controlsDuration+"ms");
         return responses;
     }
 

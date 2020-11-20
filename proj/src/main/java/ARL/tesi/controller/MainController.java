@@ -131,7 +131,7 @@ public class MainController {
         List<User> autisti = personService.getUsersByRole("Autista di linea");
         List<List<String>> responsesList = new ArrayList<>();
         for (User u : autisti) {
-            List<String> responses = executor.executeAllCostrains(u, date);
+            List<String> responses = executor.executeAllCostrains1(u, date);
             responsesList.add(responses);
         }
         return responsesList;

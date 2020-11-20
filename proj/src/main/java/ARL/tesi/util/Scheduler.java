@@ -33,62 +33,72 @@ public class Scheduler {
         List<List<Shiffts>> shifftsMatrix = getShifftsMatrixOfTheMonth(autisti,month, shiffts);
         ZoneId defaultZoneId = ZoneId.systemDefault();
         //per ogni utente
+        Shiffts s = shifftService.getLastByName("R");
+        long startSchedulerTime = System.nanoTime();
         for (User u: autisti){
+            long startDriverTime = System.nanoTime();
             List<Assegnazione> assegnaziones = new ArrayList<>();
             //per ogni giorno del mese
             for (int i = 0; i < month.size(); i++){
+                //picco un turno random
+                Random rand = new Random();
 
-                    //picco un turno random
-                    Random rand = new Random();
+                Shiffts randomShiffs = shifftsMatrix.get(i).get(rand.nextInt(shifftsMatrix.get(i).size()));
+                //default time zone
 
-                    Shiffts randomShiffs = shifftsMatrix.get(i).get(rand.nextInt(shifftsMatrix.get(i).size()));
-                    //default time zone
+                Date date = Date.from(month.get(i).atStartOfDay(defaultZoneId).toInstant());
+                Assegnazione a = new Assegnazione(u, randomShiffs,date);
+                assegnaziones.add(a);
+//                assegnazioneService.save(a);
+                boolean isOK = checkAdd(date,assegnaziones);
+                //se e tutto OK rimuovo il turrno dalla lista
+                if (isOK){
+                    //tutto a posto
+                    if(shifftsMatrix.get(i).remove(randomShiffs)){
 
-                    Date date = Date.from(month.get(i).atStartOfDay(defaultZoneId).toInstant());
-                    Assegnazione a = new Assegnazione(u, randomShiffs,date);
-                    assegnaziones.add(a);
-                    assegnazioneService.save(a);
-                    boolean isOK = checkAdd(date,u);
-                    //se e tutto OK rimuovo il turrno dalla lista
-                    if (isOK){
-                        //tutto a posto
-                        if(shifftsMatrix.get(i).remove(randomShiffs)){
-
-                        }else {
-                            System.out.println("turno" + randomShiffs.getName() + " non eliminato");
-                        }
-                        //se non va bene assegno di default un R e lo toglo dalla lista
                     }else {
-                        assegnazioneService.delete(a);
-                        Shiffts s = shifftService.getLastByName("R");
+                        System.out.println("turno" + randomShiffs.getName() + " non eliminato");
+                    }
+                    //se non va bene assegno di default un R e lo toglo dalla lista
+                }else {
+//                    assegnazioneService.delete(a);
+                    assegnaziones.remove(a);
+                    if (shifftsMatrix.get(i).contains(s)){
                         Assegnazione assegnazione = new Assegnazione(u, s, date);
-                        assegnazioneService.save(assegnazione);
+//                        assegnazioneService.save(assegnazione);
+                        assegnaziones.add(assegnazione);
                         shifftsMatrix.get(i).remove(s);
+                    } else {
+                        System.err.println("Qui ho provato a fare una cazzata");
                     }
 
-
-
-
-
+                }
             }
-            System.out.println("fatto " + u.getName());
+            long startSavingTime = System.nanoTime();
+            for (Assegnazione a : assegnaziones){
+                assegnazioneService.save(a);
+            }
+            long endSavingTime = System.nanoTime();
+            long savingDuration = (endSavingTime -startSavingTime)/1000000000;
+            System.out.println("\tSaving took "+ savingDuration+"s");
+            long endDriverTime = System.nanoTime();
+            long driverDuration = (endDriverTime -startDriverTime)/1000000000;
+            System.out.println("Done " + u.getName()+" in "+ driverDuration+"s");
 //            u.getTurni().addAll(assegnaziones);
-
-
         }
-
         for (List<Shiffts> ls: shifftsMatrix){
             if (ls.size() != 0){
                 System.out.println("lista piena");
             }
         }
-
-
+        long endSchedulerTime = System.nanoTime();
+        long duration = (endSchedulerTime - startSchedulerTime)/1000000000;  //divide by 1000000 to get milliseconds.
+        System.out.println("Scheduler took " + duration + "s");
         return pianificazione;
     }
 
-    boolean checkAdd(Date d, User u){
-        List<String> responseCheck = executor.executeAllCostrains(u,d);
+    boolean checkAdd(Date d, List<Assegnazione> a ){
+        List<String> responseCheck = executor.executeAllCostrains(a,d);
         String finalResponse = response(responseCheck);
         if (finalResponse.equals("OK")){
             return true;
@@ -96,6 +106,16 @@ public class Scheduler {
             return false;
         }
     }
+
+//    boolean checkAdd1(Date d, User u){
+//        List<String> responseCheck = executor.executeAllCostrains(u,d);
+//        String finalResponse = response(responseCheck);
+//        if (finalResponse.equals("OK")){
+//            return true;
+//        }else {
+//            return false;
+//        }
+//    }
 
     String response(List<String> in){
 

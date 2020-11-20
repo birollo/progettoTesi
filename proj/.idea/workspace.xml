@@ -1,74 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/ARL/tesi/service/ShifftService.java" line="59" />
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/ARL/tesi/modelobject/Reports.java" />
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e0dcdaf-6002-44f2-8f63-5feb0d6dde02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/modelobject/Reports.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/modelobject/report/reportObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/service/ReportService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/Scheduler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/UserForTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/Executor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/MonthDurationCount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/V102.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/V11.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/V111.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/V112.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/V12.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/V21.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/V91.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/generateTable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ARL/tesi/SchedulerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ARL/tesi/V01Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ARL/tesi/V101Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ARL/tesi/V102Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ARL/tesi/V111Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ARL/tesi/V112Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ARL/tesi/V12Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ARL/tesi/V21Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ARL/tesi/V91Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/proj.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/proj.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Excel-to-PDF.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Excel2PDF_Output.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ARL/tesi/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ARL/tesi/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/controller/FileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ARL/tesi/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ARL/tesi/modelobject/Shiffts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/modelobject/Shiffts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ARL/tesi/modelobject/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/modelobject/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ARL/tesi/repository/AssegnazioneRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/repository/AssegnazioneRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ARL/tesi/repository/ShifftsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/repository/ShifftsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ARL/tesi/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ARL/tesi/service/AssegnazioneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/service/AssegnazioneService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ARL/tesi/service/DBFileStorageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/service/DBFileStorageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ARL/tesi/service/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/service/PersonService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ARL/tesi/service/ShifftService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/service/ShifftService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/Excel2pdf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/Excel2pdf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/ExcelToPDF.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/PDFRotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/PDFRotation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/PDFUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/PDFUtility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/PagePDF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/PagePDF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/ShifftsReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/ShifftsReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/files/provaScript2.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/userProfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/userProfile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/addAssignment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/addAssignment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/calendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/excelUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/excelUpload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/turniCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/turniCreation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/createTurno.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/createTurno.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/excelUpload.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/excelUpload.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/master.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/turniDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/turniDetails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/userProfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/userProfile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/Scheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/Scheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/Executor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/Executor.java" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,265 +31,12 @@
   <component name="CoverageViewManager">
     <option name="myElementSize" value="36" />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="arlapplication@159.65.121.173" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="arlapplication@159.65.121.173" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="arlapplication@159.65.121.173" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="arlapplication: schema" type="c314c289:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="arlapplication@159.65.121.173" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="arlapplication: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="shiffts: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="arlapplication@159.65.121.173" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="arlapplication: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="user: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ErrorTreeViewConfiguration">
     <option name="autoscrollToSource" value="true" />
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-2091172300">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="-1214312183">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="40" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.12" value="2" />
-          <entry key="project.open.time.13" value="4" />
-          <entry key="project.open.time.14" value="5" />
-          <entry key="project.open.time.15" value="7" />
-          <entry key="project.open.time.16" value="4" />
-          <entry key="project.open.time.17" value="5" />
-          <entry key="project.open.time.18" value="3" />
-          <entry key="project.open.time.19" value="3" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.20" value="3" />
-          <entry key="project.open.time.21" value="7" />
-          <entry key="project.open.time.22" value="8" />
-          <entry key="project.open.time.23" value="1" />
-          <entry key="project.open.time.24" value="1" />
-          <entry key="project.open.time.25" value="1" />
-          <entry key="project.open.time.26" value="1" />
-          <entry key="project.open.time.27" value="6" />
-          <entry key="project.open.time.28" value="2" />
-          <entry key="project.open.time.29" value="2" />
-          <entry key="project.open.time.3" value="2" />
-          <entry key="project.open.time.31" value="1" />
-          <entry key="project.open.time.35" value="1" />
-          <entry key="project.open.time.39" value="1" />
-          <entry key="project.open.time.42" value="1" />
-          <entry key="project.opened" value="76" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="assegnazione" value="17" />
-          <entry key="class" value="12" />
-          <entry key="css" value="11" />
-          <entry key="files" value="14" />
-          <entry key="html" value="68" />
-          <entry key="java" value="375" />
-          <entry key="js" value="61" />
-          <entry key="properties" value="11" />
-          <entry key="role" value="1" />
-          <entry key="shiffts" value="23" />
-          <entry key="shiffts_assegnazione" value="1" />
-          <entry key="sql" value="14" />
-          <entry key="turno" value="2" />
-          <entry key="user" value="8" />
-          <entry key="xml" value="7" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CLASS" value="12" />
-          <entry key="CSS" value="11" />
-          <entry key="Database Element" value="66" />
-          <entry key="HTML" value="68" />
-          <entry key="JAVA" value="375" />
-          <entry key="JavaScript" value="61" />
-          <entry key="Properties" value="11" />
-          <entry key="SQL" value="1" />
-          <entry key="Scratch" value="13" />
-          <entry key="XML" value="7" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="cell" value="7" />
-          <entry key="css" value="26" />
-          <entry key="dummy" value="23" />
-          <entry key="html" value="2135" />
-          <entry key="java" value="31480" />
-          <entry key="js" value="6258" />
-          <entry key="properties" value="38" />
-          <entry key="sql" value="81" />
-          <entry key="xml" value="144" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="CSS" value="26" />
-          <entry key="HTML" value="2135" />
-          <entry key="JAVA" value="31480" />
-          <entry key="JavaScript" value="6258" />
-          <entry key="PLAIN_TEXT" value="23" />
-          <entry key="Properties" value="38" />
-          <entry key="SQL" value="81" />
-          <entry key="Scratch" value="7" />
-          <entry key="XML" value="144" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FavoritesManager">
     <favorites_list name="proj" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/repository/ShifftsRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/service/ShifftService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/util/Scheduler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="57" column="97" lean-forward="true" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="97" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/util/ShifftsReader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="79" column="38" lean-forward="true" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/Executor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="22" column="49" lean-forward="true" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/controller/MainController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1585">
-              <caret line="115" selection-start-line="115" selection-end-line="115" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://e4b1985c-1790-4ca3-b83a-5043ec799ec5/schema/arlapplication/table/shiffts">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://e4b1985c-1790-4ca3-b83a-5043ec799ec5/schema/arlapplication/table/assegnazione">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" text="user_id=211">
-                <filter text="user_id=211" />
-              </filtering>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://e4b1985c-1790-4ca3-b83a-5043ec799ec5/schema/arlapplication/table/files">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://e4b1985c-1790-4ca3-b83a-5043ec799ec5/schema/arlapplication/table/user">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -359,316 +48,25 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>per fu</find>
-      <find>lista</find>
-      <find>8</find>
-      <find>assegnazioneServi</find>
-      <find>last</find>
-      <find>startDate</find>
-      <find>assegna</find>
-      <find>move</find>
-      <find>excel</find>
-      <find>edit</find>
-      <find>addAss</find>
-      <find>im</find>
-      <find>errore du</find>
-      <find>MultipartFile</find>
-      <find>sys</find>
-      <find>mouse</find>
-      <find>convert</find>
-      <find>DateF</find>
-      <find>items</find>
-      <find>/lista</find>
-      <find>autista</find>
-      <find>login</find>
-      <find>redirect</find>
-      <find>redire</find>
-      <find>excelUpload</find>
-      <find>lista_persone[x]</find>
-      <find>addass</find>
-      <find>addassign</find>
-      <find>fis</find>
-      <find>userP</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/monthDurationCount.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/util/UserForTable.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/userProfile.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/turniDetails.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/turniCreation.js" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/MonthDurationCount.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/V21.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/V112.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/V91.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/V111.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/V101.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/V11.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/master.html" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/repository/AssegnazioneRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/V01.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/V12.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/V102.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/reports.js" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/util/PDFRotation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/util/ExcelToPDF.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/util/Excel2pdf.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ARL/tesi/TesiApplicationTests.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/checkTable.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/addAssignment.js" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/service/DBFileStorageService.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ARL/tesi/V91Test.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ARL/tesi/V01Test.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ARL/tesi/V111Test.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ARL/tesi/V11Test.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ARL/tesi/V12Test.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ARL/tesi/V21Test.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ARL/tesi/V101Test.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ARL/tesi/V102Test.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ARL/tesi/V112Test.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/createTurno.html" />
-        <option value="$PROJECT_DIR$/src/test/java/ARL/tesi/SchedulerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/GSTC/generateTable.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/calendar.js" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/modelobject/Shiffts.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/service/PersonService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/repository/ShifftsRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/service/ShifftService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/controller/MainController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/util/ShifftsReader.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/js/generateTable.js" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/service/AssegnazioneService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/Executor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ARL/tesi/util/Scheduler.java" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
   <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Users\david\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3" />
+      </MavenGeneralSettings>
     </option>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="tesi" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="tesi" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
-        </path>
-      </expand>
-      <select />
-    </treeState>
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1689" />
-    <option name="y" value="-9" />
-    <option name="width" value="1698" />
-    <option name="height" value="1068" />
-  </component>
+  <component name="ProjectId" id="1kWXaodMzqv1FJsKu46tBdHI3jS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tesi" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tesi" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tesi" type="462c0819:PsiDirectoryNode" />
-              <item name="modelobject" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tesi" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tesi" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tesi" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tesi" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-              <item name="controls" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="files" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="GSTC" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="tesi" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="proj" type="b2602c69:ProjectViewProjectNode" />
-              <item name="proj" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
@@ -681,13 +79,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../ingsw2/TeenCPU/labingsw022019202003teencpu" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -705,18 +104,6 @@
       <recent name="D:\SUPSI_DTI\Tesi\progettoTesi\proj\src\main\resources\static\js" />
       <recent name="D:\SUPSI_DTI\Tesi\progettoTesi\proj\src\main\resources\files" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Spring Boot.Unnamed">
     <configuration name="ARL.tesi in proj" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -743,6 +130,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="ARL.tesi" />
       <option name="MAIN_CLASS_NAME" value="ARL.tesi.SchedulerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -757,6 +145,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="ARL.tesi" />
       <option name="MAIN_CLASS_NAME" value="ARL.tesi.V102Test" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -771,6 +160,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="ARL.tesi" />
       <option name="MAIN_CLASS_NAME" value="ARL.tesi.V112Test" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -785,6 +175,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="ARL.tesi" />
       <option name="MAIN_CLASS_NAME" value="ARL.tesi.V12Test" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -798,12 +189,12 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Spring Boot.Unnamed" />
       <item itemvalue="JUnit.V112Test" />
       <item itemvalue="JUnit.V102Test" />
       <item itemvalue="JUnit.ARL.tesi in proj" />
       <item itemvalue="JUnit.V12Test" />
       <item itemvalue="JUnit.SchedulerTest" />
+      <item itemvalue="Spring Boot.Unnamed" />
     </list>
     <recent_temporary>
       <list>
@@ -815,6 +206,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="2e0dcdaf-6002-44f2-8f63-5feb0d6dde02" name="Default Changelist" comment="" />
@@ -898,6 +290,7 @@
       <workItem from="1605603294470" duration="9923000" />
       <workItem from="1605690192515" duration="16531000" />
       <workItem from="1605777520236" duration="14080000" />
+      <workItem from="1605817392967" duration="11201000" />
     </task>
     <servers />
   </component>
@@ -933,9 +326,6 @@
       <configuration name="SchedulerTest" configurationId="JUnit" />
     </history-entry>
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="424090000" />
-  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -945,77 +335,74 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49798658" visible="true" weight="0.2657718" />
-      <window_info id="Structure" order="1" sideWeight="0.50201344" side_tool="true" visible="true" weight="0.2657718" />
-      <window_info id="Designer" order="2" />
-      <window_info id="UI Designer" order="3" />
-      <window_info id="Favorites" order="4" sideWeight="0.5019305" side_tool="true" weight="0.26979867" />
-      <window_info id="Web" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32348993" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.29313928" />
-      <window_info anchor="bottom" id="TODO" order="3" weight="0.3253638" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.37449664" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32885906" />
-      <window_info anchor="bottom" id="Database Changes" order="8" weight="0.32885906" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.25100672" />
-      <window_info anchor="bottom" id="Spring" order="11" weight="0.4161074" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.50727654" />
-      <window_info anchor="bottom" id="Java Enterprise" order="13" />
-      <window_info anchor="bottom" id="Database Console" order="14" weight="0.32952183" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.24966443" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.27785236" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Maven Projects" order="6" sideWeight="0.49932885" weight="0.24295302" />
-      <window_info anchor="right" id="Coverage" order="7" sideWeight="0.50067115" side_tool="true" visible="true" weight="0.12684564" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4980695" visible="true" weight="0.18322147" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="UI Designer" order="3" />
-      <window_info id="Favorites" order="4" sideWeight="0.5019305" side_tool="true" weight="0.26979867" />
-      <window_info id="Web" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32348993" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.5315436" />
-      <window_info anchor="bottom" id="TODO" order="3" weight="0.3261745" />
-      <window_info anchor="bottom" id="Debug" order="4" visible="true" weight="0.39328858" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32885906" />
-      <window_info anchor="bottom" id="Database Changes" order="8" weight="0.32885906" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.25100672" />
-      <window_info anchor="bottom" id="Spring" order="11" weight="0.4161074" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.6255201" />
-      <window_info anchor="bottom" id="Java Enterprise" order="13" />
-      <window_info anchor="bottom" id="Database Console" order="14" weight="0.32952183" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.24966443" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.152349" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Maven Projects" order="6" sideWeight="0.49932885" weight="0.24295302" />
-      <window_info anchor="right" id="Coverage" order="7" sideWeight="0.50067115" side_tool="true" visible="true" weight="0.12684564" />
-    </layout-to-restore>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="WindowStateProjectService">
+    <state width="443" height="466" key="DebuggerActiveHint" timestamp="1605821989802">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="443" height="466" key="DebuggerActiveHint/0.0.1920.1040/-277.-1080.1920.1040@0.0.1920.1040" timestamp="1605821989802" />
+    <state width="1877" height="277" key="GridCell.Tab.0.bottom" timestamp="1605863543328">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="300" key="GridCell.Tab.0.bottom/0.0.1920.1040/-277.-1080.1920.1040@0.0.1920.1040" timestamp="1605827773044" />
+    <state width="1877" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605863543328" />
+    <state width="1877" height="277" key="GridCell.Tab.0.center" timestamp="1605863543328">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="300" key="GridCell.Tab.0.center/0.0.1920.1040/-277.-1080.1920.1040@0.0.1920.1040" timestamp="1605827773044" />
+    <state width="1877" height="277" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605863543328" />
+    <state width="1877" height="277" key="GridCell.Tab.0.left" timestamp="1605863543328">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="300" key="GridCell.Tab.0.left/0.0.1920.1040/-277.-1080.1920.1040@0.0.1920.1040" timestamp="1605827773044" />
+    <state width="1877" height="277" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605863543328" />
+    <state width="1877" height="277" key="GridCell.Tab.0.right" timestamp="1605863543328">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="300" key="GridCell.Tab.0.right/0.0.1920.1040/-277.-1080.1920.1040@0.0.1920.1040" timestamp="1605827773044" />
+    <state width="1877" height="277" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605863543328" />
+    <state width="1877" height="277" key="GridCell.Tab.1.bottom" timestamp="1605863543328">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="300" key="GridCell.Tab.1.bottom/0.0.1920.1040/-277.-1080.1920.1040@0.0.1920.1040" timestamp="1605827773044" />
+    <state width="1877" height="277" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605863543328" />
+    <state width="1877" height="277" key="GridCell.Tab.1.center" timestamp="1605863543328">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="300" key="GridCell.Tab.1.center/0.0.1920.1040/-277.-1080.1920.1040@0.0.1920.1040" timestamp="1605827773044" />
+    <state width="1877" height="277" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605863543328" />
+    <state width="1877" height="277" key="GridCell.Tab.1.left" timestamp="1605863543328">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="300" key="GridCell.Tab.1.left/0.0.1920.1040/-277.-1080.1920.1040@0.0.1920.1040" timestamp="1605827773044" />
+    <state width="1877" height="277" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605863543328" />
+    <state width="1877" height="277" key="GridCell.Tab.1.right" timestamp="1605863543328">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="300" key="GridCell.Tab.1.right/0.0.1920.1040/-277.-1080.1920.1040@0.0.1920.1040" timestamp="1605827773044" />
+    <state width="1877" height="277" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605863543328" />
+    <state width="1877" height="277" key="GridCell.Tab.2.bottom" timestamp="1605863543328">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="277" key="GridCell.Tab.2.bottom/0.0.1920.1040/-277.-1080.1920.1040@0.0.1920.1040" timestamp="1605824086480" />
+    <state width="1877" height="277" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605863543328" />
+    <state width="1877" height="277" key="GridCell.Tab.2.center" timestamp="1605863543328">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="277" key="GridCell.Tab.2.center/0.0.1920.1040/-277.-1080.1920.1040@0.0.1920.1040" timestamp="1605824086480" />
+    <state width="1877" height="277" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605863543328" />
+    <state width="1877" height="277" key="GridCell.Tab.2.left" timestamp="1605863543328">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="277" key="GridCell.Tab.2.left/0.0.1920.1040/-277.-1080.1920.1040@0.0.1920.1040" timestamp="1605824086480" />
+    <state width="1877" height="277" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605863543328" />
+    <state width="1877" height="277" key="GridCell.Tab.2.right" timestamp="1605863543328">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="277" key="GridCell.Tab.2.right/0.0.1920.1040/-277.-1080.1920.1040@0.0.1920.1040" timestamp="1605824086480" />
+    <state width="1877" height="277" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605863543328" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1023,152 +410,117 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/controller/MainController.java</url>
           <line>372</line>
-          <properties />
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/controller/MainController.java</url>
           <line>364</line>
-          <properties />
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/controller/MainController.java</url>
           <line>195</line>
-          <properties />
           <option name="timeStamp" value="68" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/controller/MainController.java</url>
           <line>197</line>
-          <properties />
           <option name="timeStamp" value="70" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/controller/MainController.java</url>
           <line>202</line>
-          <properties />
           <option name="timeStamp" value="71" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/controller/MainController.java</url>
           <line>298</line>
-          <properties />
           <option name="timeStamp" value="72" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/controller/MainController.java</url>
           <line>317</line>
-          <properties />
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/service/DBFileStorageService.java</url>
           <line>44</line>
-          <properties />
           <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/service/DBFileStorageService.java</url>
           <line>43</line>
-          <properties />
           <option name="timeStamp" value="105" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/service/ShifftService.java</url>
           <line>48</line>
-          <properties />
           <option name="timeStamp" value="144" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/service/ShifftService.java</url>
           <line>47</line>
-          <properties />
           <option name="timeStamp" value="145" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/util/ShifftsReader.java</url>
           <line>209</line>
-          <properties />
           <option name="timeStamp" value="148" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/service/PersonService.java</url>
           <line>368</line>
-          <properties />
           <option name="timeStamp" value="154" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/ARL/tesi/V01Test.java</url>
           <line>78</line>
-          <properties />
           <option name="timeStamp" value="162" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/ARL/tesi/V12Test.java</url>
           <line>57</line>
-          <properties />
           <option name="timeStamp" value="165" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/V21.java</url>
           <line>16</line>
-          <properties />
           <option name="timeStamp" value="167" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/ARL/tesi/V01Test.java</url>
           <line>56</line>
-          <properties />
           <option name="timeStamp" value="168" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/controller/MainController.java</url>
           <line>136</line>
-          <properties />
           <option name="timeStamp" value="169" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/service/DBFileStorageService.java</url>
           <line>79</line>
-          <properties />
           <option name="timeStamp" value="180" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/util/ShifftsReader.java</url>
           <line>222</line>
-          <properties />
           <option name="timeStamp" value="181" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/util/Scheduler.java</url>
-          <line>153</line>
-          <properties />
-          <option name="timeStamp" value="185" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/service/DBFileStorageService.java</url>
           <line>49</line>
-          <properties />
           <option name="timeStamp" value="206" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/controller/MainController.java</url>
           <line>115</line>
-          <properties />
           <option name="timeStamp" value="220" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/util/Scheduler.java</url>
-          <line>79</line>
-          <properties />
-          <option name="timeStamp" value="237" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ARL/tesi/util/Scheduler.java</url>
-          <line>33</line>
-          <properties />
-          <option name="timeStamp" value="238" />
+          <line>40</line>
+          <option name="timeStamp" value="242" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/main/resources/static/js/addAssignment.js</url>
@@ -1194,378 +546,6 @@
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/util/PagePDF.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/service/ReportService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/modelobject/DBFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="84" lean-forward="true" selection-start-line="18" selection-start-column="84" selection-end-line="18" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/e4b1985c-1790-4ca3-b83a-5043ec799ec5/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="das://e4b1985c-1790-4ca3-b83a-5043ec799ec5/schema/arlapplication/table/role">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://e4b1985c-1790-4ca3-b83a-5043ec799ec5/schema/arlapplication/table/shiffts_assegnazione">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/addAssignment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/excelUpload.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-561" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/util/Excel2pdf.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ARL/tesi/V11Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/createTurno.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="65" column="45" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ARL/tesi/V21Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/io/File.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="1023" selection-start-line="1023" selection-end-line="1023" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/turniDetails.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ARL/tesi/V91Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="43" column="79" selection-start-line="43" selection-start-column="79" selection-end-line="43" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ARL/tesi/V101Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="48" column="13" lean-forward="true" selection-start-line="35" selection-start-column="11" selection-end-line="48" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/userProfile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/controller/FileController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ARL/tesi/TesiApplicationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" selection-start-line="5" selection-start-column="2" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ARL/tesi/V01Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="38" column="12" lean-forward="true" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ARL/tesi/V111Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="54" column="62" selection-start-line="54" selection-start-column="62" selection-end-line="54" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/V11.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ARL/tesi/V112Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-68">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ARL/tesi/V102Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="44" column="79" selection-start-line="44" selection-start-column="79" selection-end-line="44" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ARL/tesi/V12Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="44" column="79" selection-start-line="44" selection-start-column="79" selection-end-line="44" selection-end-column="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ARL/tesi/SchedulerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="7" column="40" lean-forward="true" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/TesiApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/checkTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-374">
-          <caret line="3" selection-start-line="3" selection-end-line="4" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/modelobject/Assegnazione.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/jdk/internal/reflect/NativeMethodAccessorImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/service/DBFileStorageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3057#3058#0" expanded="true" />
-            <element signature="e#3121#3122#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/modelobject/Shiffts.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.base/java/util/Random.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="387" selection-start-line="387" selection-end-line="387" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/calendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="45" column="32" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/V01.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/generateTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://e4b1985c-1790-4ca3-b83a-5043ec799ec5/schema/arlapplication/table/assegnazione.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/service/PersonService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-68">
-          <caret line="226" selection-start-line="226" selection-end-line="226" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/service/AssegnazioneService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/repository/ShifftsRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/service/ShifftService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/util/controls/Executor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="22" column="49" lean-forward="true" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/util/Scheduler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="57" column="97" lean-forward="true" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="97" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://e4b1985c-1790-4ca3-b83a-5043ec799ec5/schema/arlapplication/table/files">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://e4b1985c-1790-4ca3-b83a-5043ec799ec5/schema/arlapplication/table/user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://e4b1985c-1790-4ca3-b83a-5043ec799ec5/schema/arlapplication/table/shiffts">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://e4b1985c-1790-4ca3-b83a-5043ec799ec5/schema/arlapplication/table/assegnazione">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" text="user_id=211">
-            <filter text="user_id=211" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1585">
-          <caret line="115" selection-start-line="115" selection-end-line="115" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ARL/tesi/util/ShifftsReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="79" column="38" lean-forward="true" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
   <component name="masterDetails">
     <states>
