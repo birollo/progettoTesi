@@ -54,7 +54,7 @@ public class V12Test {
     @Test
     void executeTest(){
         String ok = "OK";
-        String errore = "L'autista utenteTest1 Test nei giorni dal 01-01-2020 al 07-01-2020 ha una media di lavoro superiore a 9.";
+        String errore = "Test utenteTest1 nei giorni dal 01-01-2020 al 07-01-2020 ha una media di lavoro superiore a 9.";
         String testOK = v12.execute(assegnazioneListCorretta);
         assegnazioneListErronea.addAll(assegnazioneListCorretta);
         assegnazioneListErronea.get(0).getTurno().setDuration(600);

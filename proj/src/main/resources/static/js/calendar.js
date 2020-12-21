@@ -2,6 +2,7 @@ var lista_persone = [];
 // let config = {};
 let GSTCState = {};
 
+
 let meseCorrente = {};
 let mesePrecedente = {};
 
@@ -12,6 +13,10 @@ $('.from').datepicker({
     minViewMode: 1,
     format: 'mm/yyyy'
 }).on('changeDate', function(selected){
+
+    document.getElementById("errorTables").innerHTML = "";
+
+
     katon = new Date(selected.date.valueOf());
     katon.setDate(katon.getDate(new Date(selected.date.valueOf())));
     $('.to').datepicker('setStartDate', katon);
@@ -20,30 +25,43 @@ $('.from').datepicker({
 });
 
 
-async function aggiornamento(url = '', data = {}) {
-    // Default options are marked with *
-    const response = await fetch(url, {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin', // include, *same-origin, omit
-        headers: {
-            'Content-Type': 'application/json'
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        redirect: 'follow', // manual, *follow, error
-        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: JSON.stringify(data), // body data type must match "Content-Type" header
-    });
-    console.log("ho fatto");
-    return response.json(); // parses JSON response into native JavaScript objects
-}
+// async function aggiornamento(url = '', data = {}) {
+//     // Default options are marked with *
+//     const response = await fetch(url, {
+//         method: 'POST', // *GET, POST, PUT, DELETE, etc.
+//         mode: 'cors', // no-cors, *cors, same-origin
+//         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+//         credentials: 'same-origin', // include, *same-origin, omit
+//         headers: {
+//             'Content-Type': 'application/json'
+//             // 'Content-Type': 'application/x-www-form-urlencoded',
+//         },
+//         redirect: 'follow', // manual, *follow, error
+//         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+//         body: JSON.stringify(data), // body data type must match "Content-Type" header
+//     });
+//     console.log("ho fatto");
+//     return response.json(); // parses JSON response into native JavaScript objects
+// }
 
 
 let fistLoad = 0;
-//todo: magari parametrizzare data
 function caricamento() {
+    const queryString = window.location.pathname.replace('/', '').replace('%20', ' ').replace('%20', ' ');
+    // queryString.replace('%20', ' ');
     let thisDate = new Date(from.valueOf()).toISOString();
+    if (queryString === ''){
+        console.log("niente data");
+        // thisDate = new Date(from.valueOf()).toISOString();
+    }else {
+        thisDate = new Date(queryString).toISOString();
+        // thisDate = new Date(from.valueOf()).toISOString();
+        from = new Date(queryString).toISOString();
+        console.log("data=" + from);
+        from = new Date(queryString).valueOf();
+    }
+    
+
     $(document).ready(function () {
         $.ajax({
             type: 'GET',
@@ -72,11 +90,11 @@ function caricamento() {
                         // let thisDate = new Date(lista_persone[x].turni[y].date).toString();
 
                         let color = choseItemColor(lista_persone[x].u.turni[y].turno.tipo);
-                        createItem(thisId, thisName + " " + thisSurname, thisDate, color);
+                        createItem(thisId, thisSurname + " " + thisName, thisDate, color);
 
                     }
                 }
-                createRow(lista_persone[x].u.name + " " + lista_persone[x].u.surname , lista_persone[x].totThisMonth , lista_persone[x].totPreviousMonth);
+                createRow(lista_persone[x].u.surname + " " + lista_persone[x].u.name , lista_persone[x].totThisMonth , lista_persone[x].totPreviousMonth);
             }
 
             createColumns();
@@ -99,6 +117,7 @@ function caricamento() {
 
             let myConfig = createConfig();
 
+
             // let GSTCState = GSTC.api.stateFromConfig(myConfig);
             GSTCState = (window.state = GSTC.api.stateFromConfig(myConfig));
             // GSTCState.subscribe('config.plugin.ItemMovement', itemMovement => {
@@ -120,22 +139,18 @@ function caricamento() {
             //     state
             // });
 
-            //todo: porcata
-            if (fistLoad === 0){
-                var lista_righe = document.getElementsByClassName("gantt-schedule-timeline-calendar__list-column-row");
-                // console.log("k" + lista_righe.length);
-                for (var k = 0; k < lista_persone.length; k++) {
-                    var thisId = lista_persone[k].u.id;
-                    var aTag = document.createElement('a');
-                    aTag.setAttribute('href', "/user/" + thisId);
-                    aTag.innerText = "->";
-                    lista_righe[k].appendChild(aTag);
 
-                }
-                fistLoad = 1;
+
+            // weekEndColor();
+
+
+        }).done(function () {
+            if (queryString === ''){
+
+            }else {
+                check();
             }
-
-            //todo: inserire tot mese scorso come i link (prendendo la seconda parte)
+            setTimeout(() => {  weekEndColor() }, 750);
 
         }).fail(function (err) {
             console.log(err);
@@ -159,6 +174,9 @@ function choseItemColor(type) {
         case "Sera":
             color = "DarkGray";
             break;
+        case "Riposo":
+            color = "LightSkyBlue";
+            break;
         default:
             color = "DarkGray";
 
@@ -171,11 +189,39 @@ function createRow(i, current,previos) {
     const id = i.toString();
     const prec = previos.toString();
     const corr = current.toString();
+    let differencePrev = previos -10000;
+    let differenceCurr = current -10000;
+    let colorCurr = "white";
+    let colorPrev = "white";
+
+
+    if (differencePrev > 0 && differencePrev < 500 || differencePrev < 0 && differencePrev > -500){
+
+    }else if (differencePrev<1000 && differencePrev > 500 || differencePrev < -500 && differencePrev> -1000){
+        colorPrev = "rgba(247, 247, 73,.8)";
+    }else if (differencePrev > 1000 || differencePrev < -1000){
+        colorPrev = "rgba(255,153,0,.8)";
+    }
+
+    if (differenceCurr > 0 && differenceCurr < 500 || differenceCurr < 0 && differenceCurr > -500){
+
+    }else if (differenceCurr<1000 && differenceCurr > 500 || differenceCurr < -500 && differenceCurr> -1000){
+        colorCurr = "rgba(247, 247, 73,.8)";
+    }else if (differenceCurr > 1000 || differenceCurr < -1000){
+        colorCurr = "rgba(255,153,0,.8)";
+    }
+
     rows[id] = {
         id,
         nome: `${id}`,
-        precedente: `${prec}`,
-        corrente: `${corr}`,
+
+        // precedente: `${prec}`,
+        precedente: '<div style="background:'+ `${colorPrev}` + '">'+`${prec}`+ " (" +`${differencePrev}`+ ")" +'</div>',
+        // precedente:{
+        //     data: `${prec}`,
+        //     background: 'red',
+        // },
+        corrente: '<div style="background:'+ `${colorCurr}` + '">'+`${corr}`+ " (" +`${differenceCurr}`+ ")" +'</div>',
     };
 }
 
@@ -209,15 +255,17 @@ function createColumns() {
                 width: 125,
                 header: {
                     content: 'Mese precedente'
-                }
+                },
+                isHTML: true,
             },
             corrente: {
                 id: 'corrente',
-                data: 'corrente', //todo: controllare se si puo usare data al posto di innerHTML
+                data: 'corrente',
                 width: 125,
                 header: {
                     content: 'Mese corrente'
-                }
+                },
+                isHTML: true,
             }
         },
     }
@@ -292,7 +340,6 @@ class ItemClickAction {
         //     let date = new Date(this.data.item.time.start);
         //     //console.log("message" + message);
         //     createItem(itemId, rowId, date);
-        //     //todo: aggiorna con parametro un assegnazioe e cambiare lista<Ass.> in controller
         //     let jsonAssegnazione = {
         //         "turno": itemId,
         //         "persona": rowId,
@@ -387,9 +434,18 @@ function createConfig() {
             //         console.log(data, type);
             //     }
             // }),
-            CalendarScroll(),
-            // WeekendHighlight()
+            // CalendarScroll(),
+            WeekendHighlight(),
+            CalendarScroll({
+                speed: 0.2,
+                hideScroll: true,
+                onChange(time) {
+                    // console.log(GSTC.api.date(time.from).format('YYYY-MM-DD'), GSTC.api.date(time.to).format('YYYY-MM-DD'));
+                    setTimeout(() => {  weekEndColor() }, 550);
+                }
+            })
         ],
+        height: 600,
         list: {
             rowHeight: 30,
             rows,
@@ -417,8 +473,23 @@ function createConfig() {
     return config;
 }
 
-//todo: funzioncina che cambia from e to
 
+
+
+function weekEndColor( ) {
+    let giorni = document.getElementsByClassName("gantt-schedule-timeline-calendar__chart-calendar-date--level-1");
+    for (var i=0; i < giorni.length; i++){
+        let ciao = giorni[i].childNodes[2].childNodes[2].childNodes[1].data.valueOf();
+        if (ciao === "Sat" || ciao === "Sun"){
+            giorni[i].style.backgroundColor = "rgba(227, 129, 230,.8)";
+        }else {
+            giorni[i].style.backgroundColor = "rgb(253, 253, 253)";
+        }
+    }
+
+
+
+}
 // //creazione calendario
 // let GSTCState = (window.state = GSTC.api.stateFromConfig(config));
 //

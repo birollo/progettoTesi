@@ -5,7 +5,7 @@ import ARL.tesi.modelobject.Assegnazione;
 import java.time.LocalTime;
 import java.util.List;
 
-public class V91 {
+public class V91 implements SoftCostraint {
     public int execute(List<Assegnazione> assegnaziones) {
         int count = 0;
         for (Assegnazione a : assegnaziones) {

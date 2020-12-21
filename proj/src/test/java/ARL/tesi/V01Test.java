@@ -68,7 +68,7 @@ public class V01Test {
     @Test
     void executeTest(){
         String ok = "OK";
-        String errore = "L'autista utenteTest1 Test non ha un turno assegnato il 06-01-2020";
+        String errore = "Test utenteTest1 non ha un turno assegnato il 06-01-2020";
         String testOK = v01.execute(assegnazioneListCorretta);
         String testErrore = v01.execute(assegnazioneListErronea);
         assertEquals(ok, testOK);

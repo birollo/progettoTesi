@@ -6,7 +6,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 //Per il servizio tra le ore 22 e le 6, deve essere accordato un supplemento di tempo
-public class V21 {
+public class V21 implements SoftCostraint{
 
     public int execute(List<Assegnazione> assegnaziones) {
         int count = 0;

@@ -37,12 +37,14 @@ public class Scheduler {
             List<Assegnazione> assegnaziones = new ArrayList<>();
             //per ogni giorno del mese
             for (int i = 0; i < month.size(); i++){
-
+                if (assegnazioneService.getByUserAndDate(u,Date.from(month.get(i).atStartOfDay(defaultZoneId).toInstant()))  == null){
                     //picco un turno random
                     Random rand = new Random();
-
+//
                     Shiffts randomShiffs = shifftsMatrix.get(i).get(rand.nextInt(shifftsMatrix.get(i).size()));
-                    //default time zone
+//                    //default time zone
+
+//                    Shiffts randomShiffs =  shifftsMatrix.get(i).get(0);
 
                     Date date = Date.from(month.get(i).atStartOfDay(defaultZoneId).toInstant());
                     Assegnazione a = new Assegnazione(u, randomShiffs,date);
@@ -65,9 +67,9 @@ public class Scheduler {
                         assegnazioneService.save(assegnazione);
                         shifftsMatrix.get(i).remove(s);
                     }
-
-
-
+                }else {
+                    continue;
+                }
 
 
             }

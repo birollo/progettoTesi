@@ -56,7 +56,7 @@ public class V102Test {
 
     @Test
     void executeTest(){
-        assertEquals(v102.execute(assegnazioneListErronea), "L'autista utenteTest1 Test nel mese dal 01-01-2020 al 10-01-2020 non ha almeno un turno di riposo che cade di domenica");
+        assertEquals(v102.execute(assegnazioneListErronea), "Test utenteTest1 nel mese dal 01-01-2020 al 10-01-2020 non ha almeno un turno di riposo che cade di domenica");
         assegnazioneListCorretta.get(4).getTurno().setName("R");
         assertEquals(v102.execute(assegnazioneListCorretta), "OK");
     }

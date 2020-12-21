@@ -41,6 +41,16 @@ public class AssegnazioneService {
 
     }
 
+    public void deleteByUserAndDare(User u, Date d){
+        if (assegnazioneRepository.getAssegnazioneByUserAndDate(u, d) == null){
+
+        }else {
+            Assegnazione a = getByUserAndDate(u,d);
+            assegnazioneRepository.delete(a);
+        }
+
+    }
+
     public Assegnazione getByUserAndDate(User u, Date d) {
         return assegnazioneRepository.getAssegnazioneByUserAndDate(u, d);
     }

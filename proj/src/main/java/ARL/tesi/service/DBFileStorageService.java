@@ -9,6 +9,7 @@ import ARL.tesi.repository.ShifftsRepository;
 import ARL.tesi.util.ShifftsReader;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -62,8 +63,14 @@ public class DBFileStorageService {
             }
 
 
+            DBFile dbFile;
+            if (file.getName().contains("pdf")){
+                dbFile = new DBFile(fileName, String.valueOf(MediaType.APPLICATION_PDF), file.getBytes(), new Date());
+            }else{
+                dbFile = new DBFile(fileName, file.getContentType(), file.getBytes(), new Date());
+            }
             //todo: assegno fileType a dipendenza del estensione
-            DBFile dbFile = new DBFile(fileName, file.getContentType(), file.getBytes(), new Date());
+
 
             return dbFileRepository.save(dbFile);
         } catch (IOException ex) {

@@ -58,7 +58,7 @@ public class V112Test {
     @Test
     void executeTest(){
         assegnazioneListErronea.addAll(assegnazioneListCorretta);
-        assertEquals(v112.execute(assegnazioneListErronea), "L'autistautenteTest1 Test ha 7 giorni consecutivi di vacanza senza riposo nel periodo dalTue Dec 31 00:00:00 CET 2019 al Tue Jan 07 00:00:00 CET 2020");
+        assertEquals(v112.execute(assegnazioneListErronea), "Test utenteTest1 ha 7 giorni consecutivi di vacanza senza riposo nel periodo dalTue Dec 31 00:00:00 CET 2019 al Tue Jan 07 00:00:00 CET 2020");
         assegnazioneListCorretta.get(6).getTurno().setName("R");
         assertEquals(v112.execute(assegnazioneListCorretta), "OK");
     }

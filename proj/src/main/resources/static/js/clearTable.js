@@ -1,8 +1,8 @@
 
 
-let buttonGenerate = document.getElementById('buttonGenerate');
-buttonGenerate.addEventListener("click", generate);
-buttonGenerate.style.display = "none";
+let buttonClear= document.getElementById('buttonClear');
+buttonClear.addEventListener("click", clear);
+buttonClear.style.display = "none";
 
 $('.from').datepicker({
     autoclose: true,
@@ -15,15 +15,15 @@ $('.from').datepicker({
 function toggleCheck() {
     let isChose = choser.value;
     if (isChose === "Scegli mese") {
-        buttonGenerate.style.display = "none";
+        buttonClear.style.display = "none";
     } else {
-        buttonGenerate.style.display = "block";
+        buttonClear.style.display = "block";
     }
 }
 
-function generate() {
-    buttonGenerate.style.display = "none";
-    document.getElementById('generateLoading').style.display = "block";
+function clear() {
+    buttonClear.style.display = "none";
+
 
     let thisDate = new Date(from.valueOf()).toISOString();
 
@@ -33,11 +33,10 @@ function generate() {
         // dataType: 'text',
         data: {date: thisDate},
         // async: true,
-        url: '/generaTabella',
+        url: '/svuotaTabella',
         contentType: 'text'
     }).done(function (response) {
-        document.getElementById('generateLoading').style.display = "none";
-        buttonGenerate.style.display = "block";
+        buttonClear.style.display = "block";
         let risposte = response;
         caricamento();
 

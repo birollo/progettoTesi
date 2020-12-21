@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:insert="~{master::head('addHolidays')}">
+
+    <!--datepicker-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css">
+</head>
+<body>
+<div class="container my-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="jumbotron p-4 text-center mb-2">
+                        <h1>Aggiungi vacanze</h1>
+                    </div>
+                    <form id="register-form" th:object="${vacanza}" method="post" role="form" style="display: block;">
+                        <div class="form-group">
+                            <label>Nome Vacanza</label>
+                            <input type="text" class="form-control input-sm chat-input" id="name" tabindex="1"
+                                   th:field="*{name}" placeholder="Nome">
+                        </div>
+                        <!--hour picker-->
+                        <div class="row">
+                            <div class="form-group col-md-6" >
+                                <label>Ora inizio turno</label>
+                                <input th:field="*{da}" tabindex="2" type="date" class="form-control input-sm chat-input" name="time1" id="time1" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Ora fine turno</label>
+                                <input th:field="*{a}" tabindex="3" type="date" class="form-control input-sm chat-input" name="time2" id="time2" />
+                            </div>
+                        </div>
+                        <div class="form-group" tabindex="4">
+                            <label>Tipo:</label>
+                            <select name="role" id="role" th:field="*{type}">
+                                <option id="option" value="" selected="selected" > -- select an option -- </option>
+                                <option value="Vacanze scolastiche">Vacanze scolastiche</option>
+                                <option value="Festivo">Festivo</option>
+                            </select>
+                        </div>
+                        <!--&lt;!&ndash;check school&ndash;&gt;-->
+                        <!--<div class="form-group">-->
+                            <!--<label>Scolastico</label>-->
+                            <!--<input type="checkbox" class="form-control input-sm leftBottom" id="school" tabindex="8"-->
+                                   <!--th:field="*{school}">-->
+                        <!--</div>-->
+                        <!--submit-->
+                        <div class="form-group mt-5" id="validate">
+                            <button class="btn btn-block btn-primary" tabindex="5" type="submit">Crea turno</button>
+                        </div>
+                    </form>
+                    <div class="text-center">
+                        <a th:href="@{/}">Home page</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="jumbotron p-4 text-center mb-2">
+                            <h1>Vacanze gia inserite</h1>
+                        </div>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Dal</th>
+                                <th scope="col">Al</th>
+                                <th scope="col">Tipo</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="h:${holidays}">
+                                <td th:text="${h.name}">Nome</td>
+                                <td th:text="${h.da}">Dal</td>
+                                <td th:text="${h.a}">Al</td>
+                                <td th:text="${h.type}">Tipo</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/locales/it-CH.min.js"></script>
+<script type="text/javascript" src="js/datepicker.min.js"></script>
+<script type="text/javascript" th:src="@{/js/addHolidays.js}"></script>
+
+</body>
+</html>

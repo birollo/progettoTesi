@@ -58,7 +58,7 @@ public class V11Test {
         Shiffts s2 = new Shiffts("lungo", true, "Mattina","LU-VE", 800, 0, 0, LocalTime.of(0, 0), LocalTime.of(0, 0));
         assegnazioneListErronea.addAll(assegnazioneListCorretta);
         assegnazioneListErronea.get(0).setTurno(s2);
-        assertEquals("L'autista utenteTest1 Testha una durata media giornaliera superiore a 7 ore.", v11.execute(assegnazioneListErronea));
+        assertEquals("Test utenteTest1 ha una durata media giornaliera superiore a 7 ore.", v11.execute(assegnazioneListErronea));
     }
 }
 

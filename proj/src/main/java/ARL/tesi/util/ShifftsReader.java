@@ -70,45 +70,51 @@ public class ShifftsReader {
             LocalTime endTime= null;
             double time = 0;
 
-            for (Row r : sheet){
-                for (Cell c : r){
-                    int rowIndex = c.getRowIndex();
-                    int colIndex = c.getColumnIndex();
-                    if (rowIndex == 1 &&  colIndex == 0) {
-                        if (c.getCellType()==CellType.NUMERIC){
-                            name =String.valueOf((int) c.getNumericCellValue());
-                        }else if (c.getCellType()==CellType.STRING){
-                            name = c.getStringCellValue();
-                        }
-                        if (name.equals("")){
-                            throw new FileStorageException("nome non presente nel forglio numero " + i+1);
-                        }
-                    }else if (rowIndex == 2 && colIndex == 0){
-                        days = c.getStringCellValue();
-                    } else if (rowIndex == 6 && colIndex == 9) {
-                        duration = (int) c.getNumericCellValue();
-                    }else if (rowIndex == 7 && colIndex == 8) {
-                        value = (int) c.getNumericCellValue();
-                    }else if (rowIndex == 5 &&  colIndex== 7) {
-                        time = Math.ceil((c.getNumericCellValue() *24)* Math.pow(10,2))/ Math.pow(10,2);
-                        hours = (int)time;
-                        minutes = (int) ((time - hours) * 60);
-                        if (hours == 24){
-                            hours= 0;
-                        }
-                        startTime =  LocalTime.of(hours, minutes);
-                    }else if (rowIndex == 5 && colIndex == 8) {
-                        time = Math.ceil((c.getNumericCellValue() *24)* Math.pow(10,2))/ Math.pow(10,2);
-                        hours = (int) time;
-                        minutes = (int) ((time - hours) * 60);
-                        if (hours == 24){
-                            hours= 0;
-                        }
-                        endTime =  LocalTime.of(hours, minutes);
-                    }
+            if(sheet.getSheetName().contains("Foglio")){
 
+            }else {
+                for (Row r : sheet){
+                    for (Cell c : r){
+                        int rowIndex = c.getRowIndex();
+                        int colIndex = c.getColumnIndex();
+                        if (rowIndex == 1 &&  colIndex == 0) {
+                            if (c.getCellType()==CellType.NUMERIC){
+                                name =String.valueOf((int) c.getNumericCellValue());
+                            }else if (c.getCellType()==CellType.STRING){
+                                name = c.getStringCellValue();
+                            }
+                            if (name.equals("")){
+                                throw new FileStorageException("nome non presente nel forglio numero " + i+1);
+                            }
+                        }else if (rowIndex == 2 && colIndex == 0){
+                            days = c.getStringCellValue();
+                        } else if (rowIndex == 6 && colIndex == 9) {
+                            duration = (int) c.getNumericCellValue();
+                        }else if (rowIndex == 7 && colIndex == 8) {
+                            value = (int) c.getNumericCellValue();
+                        }else if (rowIndex == 5 &&  colIndex== 7) {
+                            time = Math.ceil((c.getNumericCellValue() *24)* Math.pow(10,2))/ Math.pow(10,2);
+                            hours = (int)time;
+                            minutes = (int) ((time - hours) * 60);
+                            if (hours == 24){
+                                hours= 0;
+                            }
+                            startTime =  LocalTime.of(hours, minutes);
+                        }else if (rowIndex == 5 && colIndex == 8) {
+                            time = Math.ceil((c.getNumericCellValue() *24)* Math.pow(10,2))/ Math.pow(10,2);
+                            hours = (int) time;
+                            minutes = (int) ((time - hours) * 60);
+                            if (hours == 24){
+                                hours= 0;
+                            }
+                            endTime =  LocalTime.of(hours, minutes);
+                        }
+
+                    }
                 }
             }
+
+
 
             if (name.contains("SC")){
                 school = false;

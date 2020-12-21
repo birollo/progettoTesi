@@ -1,8 +1,6 @@
-
-
-let buttonGenerate = document.getElementById('buttonGenerate');
-buttonGenerate.addEventListener("click", generate);
-buttonGenerate.style.display = "none";
+let buttonPDF= document.getElementById('buttonPDF');
+buttonPDF.addEventListener("click", PDFRotation);
+buttonPDF.style.display = "none";
 
 $('.from').datepicker({
     autoclose: true,
@@ -15,15 +13,15 @@ $('.from').datepicker({
 function toggleCheck() {
     let isChose = choser.value;
     if (isChose === "Scegli mese") {
-        buttonGenerate.style.display = "none";
+        buttonPDF.style.display = "none";
     } else {
-        buttonGenerate.style.display = "block";
+        buttonPDF.style.display = "block";
     }
 }
 
-function generate() {
-    buttonGenerate.style.display = "none";
-    document.getElementById('generateLoading').style.display = "block";
+function PDFRotation() {
+    buttonPDF.style.display = "none";
+
 
     let thisDate = new Date(from.valueOf()).toISOString();
 
@@ -33,13 +31,12 @@ function generate() {
         // dataType: 'text',
         data: {date: thisDate},
         // async: true,
-        url: '/generaTabella',
+        url: '/rotation/download',
         contentType: 'text'
     }).done(function (response) {
-        document.getElementById('generateLoading').style.display = "none";
-        buttonGenerate.style.display = "block";
+        buttonPDF.style.display = "block";
         let risposte = response;
-        caricamento();
+        // caricamento();
 
 
     }).fail(function (err) {

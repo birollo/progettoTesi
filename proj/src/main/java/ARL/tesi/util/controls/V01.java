@@ -8,7 +8,7 @@ import java.util.Calendar;
 import java.util.List;
 
 //in ongi giorno deve esserci un turno
-public class V01 {
+public class V01 implements HardCostraint{
 
     public String execute(List<Assegnazione> assegnazioneList){
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
@@ -19,7 +19,6 @@ public class V01 {
         for (int i=0; i<assegnazioneList.size(); i ++){
             String s1 = sdf.format(calendar.getTime());
             String s2 = sdf.format(assegnazioneList.get(i).getDate());
-            String c = "cio";
             if (s1.equals(s2)){
 
             }else {
@@ -27,8 +26,8 @@ public class V01 {
                 cal.setTime(assegnazioneList.get(i).getDate());
                 cal.add(Calendar.DATE,-1);
                 String dt = sdf.format(cal.getTime());
-                return "L'autista " + assegnazioneList.get(0).getUser().getName() + " " +
-                        assegnazioneList.get(0).getUser().getSurname() + " non ha un turno assegnato il " + dt;
+                return assegnazioneList.get(0).getUser().getSurname() + " " +
+                        assegnazioneList.get(0).getUser().getName() + " non ha un turno assegnato il " + dt;
             }
             calendar.add(Calendar.DATE, 1);
         }

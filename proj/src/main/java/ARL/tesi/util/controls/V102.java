@@ -8,7 +8,7 @@ import java.util.Calendar;
 import java.util.List;
 
 //all interno di un mese almeno un turno di riposo deve cadere di domenica
-public class V102 {
+public class V102 implements HardCostraint {
 
 
     public String execute(List<Assegnazione> assegnaziones){
@@ -31,7 +31,7 @@ public class V102 {
             String d1 = sdf.format(cal.getTime());
             cal.setTime(assegnaziones.get(assegnaziones.size()-1).getDate());
             String d2 = sdf.format(cal.getTime());
-            return "L'autista " + assegnaziones.get(0).getUser().getName() + " " + assegnaziones.get(0).getUser().getSurname() +
+            return assegnaziones.get(0).getUser().getSurname() + " " + assegnaziones.get(0).getUser().getName() +
                     " nel mese dal " + d1 + " al " + d2 +
                     " non ha almeno un turno di riposo che cade di domenica";
         }

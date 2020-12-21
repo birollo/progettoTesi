@@ -65,10 +65,12 @@ public class ShifftService {
         List<Shiffts> shiffts = getLastVersionOfAll();
         List<Shiffts> shifftsList = new ArrayList<>();
         for (Shiffts s: shiffts){
-            if (s.getDays().equals(date) && s.isSchool() == school){
+            if (s.getDays().contains(date) && s.isSchool() == school){
                 shifftsList.add(s);
             }
         }
+        shifftsList.add(shifftsRepository.getByName("R"));
+//        shifftsList.add(shifftsRepository.getByName("V"));
 
         return shifftsList;
     }

@@ -1,6 +1,7 @@
 package ARL.tesi.service;
 
 import ARL.tesi.modelobject.*;
+import ARL.tesi.repository.*;
 import ARL.tesi.util.ShifftsReader;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +9,6 @@ import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-import ARL.tesi.repository.AssegnazioneRepository;
-import ARL.tesi.repository.RoleRepository;
-import ARL.tesi.repository.ShifftsRepository;
-import ARL.tesi.repository.UserRepository;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.PostConstruct;
@@ -48,6 +45,8 @@ public class PersonService {
     @Autowired
     private ShifftsReader shifftsReader;
 
+    @Autowired
+    private HolidaysRepository holidaysRepository;
     //Init method
     @PostConstruct
     public void init() throws ParseException {
@@ -56,6 +55,7 @@ public class PersonService {
         createAdmin();
         createShiffts();
         createAssignments();
+        createHoliday();
     }
 
     private void createRoles(){
@@ -225,8 +225,8 @@ public class PersonService {
                     }
                 }
 
-                Shiffts r = new Shiffts("R", true, "tipo", "", 0,0,0, LocalTime.of(0,0), LocalTime.of(0,0));
-                Shiffts c = new Shiffts("C", true, "tipo", "", 0,0,0, LocalTime.of(0,0), LocalTime.of(0,0));
+                Shiffts r = new Shiffts("R", true, "Riposo", "", 0,0,0, LocalTime.of(0,0), LocalTime.of(0,0));
+                Shiffts c = new Shiffts("C", true, "Riposo", "", 0,0,0, LocalTime.of(0,0), LocalTime.of(0,0));
                 shifftService.save(r);
                 shifftService.save(c);
 
@@ -252,6 +252,17 @@ public class PersonService {
         }
     }
 
+
+    private void createHoliday(){
+        if (holidaysRepository.findAll().size() == 0){
+            String name = "Primo Agosto";
+            String from = "01-08-2020";
+            String to = "01-08-2020";
+            String type = "Festivo";
+            Holidays h = new Holidays( name, from,  to, type);
+            holidaysRepository.save(h);
+        }
+    }
     /*public List<Item> searchByCategoryAndType(String category, Type type) {
         return repo.findTop3ByCategoryTypeIgnoreCaseAndTypeOrderByDateDesc(category, type);
     }

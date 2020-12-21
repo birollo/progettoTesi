@@ -4,7 +4,7 @@ import ARL.tesi.modelobject.Assegnazione;
 
 import java.util.List;
 
-public class V101 {
+public class V101 implements SoftCostraint {
 
     public int execute(List<Assegnazione> assegnaziones){
         int count = 0;

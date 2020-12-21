@@ -8,6 +8,7 @@ import ARL.tesi.util.Scheduler;
 import ARL.tesi.util.UserForTable;
 import ARL.tesi.util.controls.Executor;
 import ARL.tesi.util.controls.MonthDurationCount;
+import ARL.tesi.util.controls.ShifftsOfTheDay;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.text.DateFormat;
+import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -48,12 +51,18 @@ public class MainController {
     @Autowired
     Scheduler scheduler;
 
+    @Autowired
+    ShifftsOfTheDay shifftsOfTheDay;
+
+    @Autowired
+    HolidaysService holidaysService;
+
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("user", personService.getAuthenticatedUser());
-        model.addAttribute("users", personService.getUsers());
-        model.addAttribute("turni", personService.getTurni());
-        return "index";
+           model.addAttribute("user", personService.getAuthenticatedUser());
+           model.addAttribute("users", personService.getUsers());
+           model.addAttribute("turni", personService.getTurni());
+           return "index";
     }
 
     @GetMapping("/login")
@@ -95,6 +104,77 @@ public class MainController {
         return userForTables;
     }
 
+    @GetMapping(value = "/svuotaTabella")
+    public @ResponseBody void svuotaTable(@RequestParam("date") String d) {
+
+        List<User> autisti = personService.getUsersByRole("Autista di linea");
+        List<LocalDate> month = new ArrayList<>();
+
+        String stringToParse = d.split("T")[0];
+        DateTimeFormatter sdf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate first = LocalDate.parse(stringToParse,sdf);
+        first = first.plusDays(1);
+        LocalDate last = first.plusMonths(1);
+        last = last.plusDays(-1);
+        while (!first.equals(last)){
+            month.add(first);
+            first = first.plusDays(1);
+        }
+        month.add(last);
+
+        for (User u : autisti){
+            for (LocalDate ld: month){
+                assegnazioneService.deleteByUserAndDare(u,java.sql.Date.valueOf(ld) );
+            }
+
+        }
+
+
+    }
+
+    //per funzione ajax caricamento
+    @GetMapping(value = "/controllaTabella")
+    public @ResponseBody
+    List<List<List<String>>> checkCostraints(@RequestParam("date") String d) throws ParseException {
+        List<List<List<String>>> responsesList = new ArrayList<>();
+        String stringToParse = d.toString().split("T")[0];
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar c = Calendar.getInstance();
+        c.setTime(sdf.parse(stringToParse));
+        c.add(Calendar.DATE, 1);  // number of days to add
+        stringToParse = sdf.format(c.getTime());  // dt is now the new date
+        Date date = new SimpleDateFormat("yyyy-MM-dd").parse(stringToParse);
+
+        DateTimeFormatter sdff = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        List<LocalDate> month = new ArrayList<>();
+        LocalDate first = LocalDate.parse(stringToParse,sdff);
+//        first = first.plusDays(1);
+        LocalDate last = first.plusMonths(1);
+        last = last.plusDays(-1);
+        while (!first.equals(last)){
+            month.add(first);
+            first = first.plusDays(1);
+        }
+        month.add(last);
+
+        List<User> autisti = personService.getUsersByRole("Autista di linea");
+        List<List<String>> userResponse = new ArrayList<>();
+        for (User u : autisti) {
+            List<String> responses = executor.executeAllCostrains(u, date);
+            userResponse.add(responses);
+        }
+
+        //parte lenta
+        List<Shiffts> allShiffts = shifftService.getLastVersionOfAll();
+        List<List<String>> dayResponse = new ArrayList<>();
+        for (LocalDate ld: month){
+            dayResponse.add(shifftsOfTheDay.execute(autisti, ld, allShiffts ));
+        }
+        responsesList.add(userResponse);
+        responsesList.add(dayResponse);
+        return responsesList;
+    }
+
     @GetMapping(value = "/generaTabella")
     public @ResponseBody List<List<Assegnazione>> generateTable(@RequestParam("date") String d) {
         List<User> autisti = personService.getUsersByRole("Autista di linea");
@@ -114,27 +194,6 @@ public class MainController {
         List<List<Assegnazione>> pianificazione = scheduler.scheduler(month,shiffts, autisti);
 
         return pianificazione;
-    }
-
-    //per funzione ajax caricamento
-    @GetMapping(value = "/controllaTabella")
-    public @ResponseBody
-    List<List<String>> checkCostraints(@RequestParam("date") String d) throws ParseException {
-        String stringToParse = d.toString().split("T")[0];
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Calendar c = Calendar.getInstance();
-        c.setTime(sdf.parse(stringToParse));
-        c.add(Calendar.DATE, 1);  // number of days to add
-        stringToParse = sdf.format(c.getTime());  // dt is now the new date
-        Date date = new SimpleDateFormat("yyyy-MM-dd").parse(stringToParse);
-
-        List<User> autisti = personService.getUsersByRole("Autista di linea");
-        List<List<String>> responsesList = new ArrayList<>();
-        for (User u : autisti) {
-            List<String> responses = executor.executeAllCostrains(u, date);
-            responsesList.add(responses);
-        }
-        return responsesList;
     }
 
     //per funzione ajax report
@@ -217,6 +276,19 @@ public class MainController {
         return "redirect:/";
     }
 
+    @GetMapping("/addHolidays")
+    public String newHolidays(Model model) {
+        model.addAttribute("vacanza", new Holidays() );
+        model.addAttribute("holidays", holidaysService.getAll());
+        return "addHolidays";
+    }
+
+    @PostMapping
+    public String postHolidays(Holidays h){
+        holidaysService.save(h);
+        return "redirect:/";
+    }
+
     @GetMapping("/turno/{id}")
     public String detailTurno(@PathVariable int id, Model model) {
         model.addAttribute("turno", shifftService.getOne(id));
@@ -258,7 +330,8 @@ public class MainController {
 
     @GetMapping("/user/{id}")
     public String detail(@PathVariable int id, Model model) {
-        model.addAttribute("user", personService.getUser(id));
+        model.addAttribute("user", personService.getAuthenticatedUser());
+        model.addAttribute("utente", personService.getUser(id));
         model.addAttribute("turni", personService.getTurniByUser(personService.getUser(id)));
         model.addAttribute("totMin", personService.getTotalMinutes(personService.getUser(id)));
         return "userProfile";
@@ -338,7 +411,8 @@ public class MainController {
     public String addAssignment(Model model, @PathVariable String id, @PathVariable Date date) {
         String name = id.split(" ")[0];
         String surname = id.split(" ")[1];
-        User u = personService.getuserByNameAndSurname(name, surname);
+        //todo: name e surname scambiati, pe rora e giusto ma da modificare le due righe sopra
+        User u = personService.getuserByNameAndSurname(surname, name);
         model.addAttribute("user", u);
 
         String pattern = "dd-MM-yyyy";
@@ -346,7 +420,7 @@ public class MainController {
 
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        //todo:forse e qua che si toglie un giorno
+
         cal.add(Calendar.DATE, -1);
 
         Date dateBefore = cal.getTime();
@@ -356,11 +430,12 @@ public class MainController {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        String dayNames[] = new String[] {"MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY" };
 
-
+        String day = dayNames[cal.get(Calendar.DAY_OF_WEEK )-1];
+//        System.out.println("day " + day);
         String fdate = simpleDateFormat.format(date);
 
-        int idUser = u.getId();
         Assegnazione lastAssignment = assegnazioneService.getByUserAndDate(u, dateBefore);
         Shiffts lastShifft;
         if (lastAssignment == null) {
@@ -373,24 +448,50 @@ public class MainController {
 //        lastShifft.setEndTime(lastShifft.getEndTime().plusHours(-1));
 
         model.addAttribute("date", fdate);
-        model.addAttribute("turni", shifftService.getLastVersionOfAll());
+
+
+        model.addAttribute("turni",  shifftService.getAllByDateAndSchool(day, true));
+//        model.addAttribute("turni", shifftService.getLastVersionOfAll());
         model.addAttribute("lastShifft", lastShifft);
         return "addAssignment";
     }
 
     @PostMapping(value = "/assegnazione/{id}/{date}")
-    public String checkAssignment(@RequestParam("thisTurno") String idTurno, @PathVariable String id, @PathVariable Date date) {
-        String name = id.split(" ")[0];
-        String surname = id.split(" ")[1];
+    public String checkAssignment(@RequestParam("thisTurno") String idTurno, @PathVariable String id, @PathVariable Date date) throws ParseException {
+        String name = id.split(" ")[1];
+        String surname = id.split(" ")[0];
         User u = personService.getuserByNameAndSurname(name, surname);
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         Date dateBefore1Days = cal.getTime();
         Shiffts t = shifftService.getLastByName(idTurno);
+
         Assegnazione a = new Assegnazione(u, t, dateBefore1Days);
         assegnazioneService.save(a);
-        return "redirect:/";
+
+        String mese = date.toString().split(" ")[1];
+//        String giorno = date.toString().split(" ")[2];
+        String anno = date.toString().split(" ")[5];
+
+        String dateString = anno + " " + mese+ " " + "01";
+        if (t.getName().equals("R") || t.getName().equals("V")){
+            return "redirect:/";
+        }else {
+            return "redirect:/"+dateString ;
+        }
+        
     }
 
+    @GetMapping("/{date}")
+    public String indexWithChecs(Model model, @PathVariable String date) throws ParseException {
+        model.addAttribute("user", personService.getAuthenticatedUser());
+        model.addAttribute("users", personService.getUsers());
+        model.addAttribute("turni", personService.getTurni());
+
+
+
+       model.addAttribute("date", date);
+        return "index";
+    }
 
 }
